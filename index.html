@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLOSH Countdown</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap');
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            color: #1f487e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        button {
+            background-color: #1f487e;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 50px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #16355e;
+        }
+        button:disabled {
+            background-color: #b0bec5;
+            cursor: not-allowed;
+        }
+        .event-box {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #events-container {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<h1>SLOSH Countdown Timeline</h1>
+<div id="countdown">T-10:00</div>
+<div class="buttons">
+    <button onclick="adjustTime(-1)">−</button>
+    <button id="startPauseBtn" onclick="toggleCountdown()">▶</button>
+    <button onclick="adjustTime(1)">+</button>
+    <button onclick="resetCountdown()">⟲</button>
+</div>
+<div id="events-container"></div>
+
+<script>
+    let time = 600;
+    let interval;
+    const countdownEl = document.getElementById("countdown");
+    const eventsContainer = document.getElementById("events-container");
+    const startPauseBtn = document.getElementById("startPauseBtn");
+    const eventTimes = { 600: "T-10 minutes: Systems Check", 0: "Liftoff!" };
+    let displayedEvents = new Set();
+    let liftoffReached = false;
+
+    function updateDisplay() {
+        let minutes = Math.floor(Math.abs(time) / 60);
+        let seconds = Math.abs(time) % 60;
+        countdownEl.textContent = `${liftoffReached ? 'T+' : 'T-'}${minutes}:${seconds.toString().padStart(2, '0')}`;
+        for (const [eventTime, eventText] of Object.entries(eventTimes)) {
+            if (time <= eventTime && !displayedEvents.has(eventTime)) {
+                createEventBox(eventTime, eventText);
+                displayedEvents.add(eventTime);
+            }
+        }
+    }
+
+    function adjustTime(amount) {
+        if (!liftoffReached) {
+            let newTime = time + amount;
+            if (time > 0 && newTime <= 0) {
+                time = 0;
+                liftoffReached = true;
+            } else {
+                time = newTime;
+            }
+            updateDisplay();
+        }
+    }
+
+    function toggleCountdown() {
+        if (interval) {
+            clearInterval(interval);
+            interval = null;
+            startPauseBtn.textContent = "▶";
+        } else {
+            interval = setInterval(() => {
+                if (!liftoffReached) {
+                    time--;
+                    if (time === 0) liftoffReached = true;
+                } else {
+                    time++;
+                }
+                updateDisplay();
+            }, 1000);
+            startPauseBtn.textContent = "⏸";
+        }
+    }
+
+    function resetCountdown() {
+        clearInterval(interval);
+        interval = null;
+        time = 600;
+        liftoffReached = false;
+        eventsContainer.innerHTML = "";
+        displayedEvents.clear();
+        startPauseBtn.textContent = "▶";
+        updateDisplay();
+    }
+
+    function createEventBox(eventTime, eventText) {
+        let eventBox = document.createElement("div");
+        eventBox.classList.add("event-box");
+        eventBox.innerHTML = `<span>${eventText}</span> <button onclick="this.parentElement.remove(); displayedEvents.delete(${eventTime})">✔</button>`;
+        eventsContainer.appendChild(eventBox);
+    }
+
+    updateDisplay();
+</script>
+</body>
+</html>
+
