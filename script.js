@@ -3,14 +3,14 @@ let interval;
 const countdownEl = document.getElementById("countdown");
 const eventsContainer = document.getElementById("events-container");
 const startPauseBtn = document.getElementById("startPauseBtn");
-const eventTimes = { 600: "T-10 minutes: Systems Check", 0: "Liftoff!" };
+const eventTimes = {600: "T-10 minutes: Systems Check", 0: "Liftoff!"};
 let displayedEvents = new Set();
 let liftoffReached = false;
 
 function updateDisplay() {
   let minutes = Math.floor(Math.abs(time) / 60);
   let seconds = Math.abs(time) % 60;
-  countdownEl.textContent = `${liftoffReached ? "T+" : "T-"}${minutes}:${seconds
+  countdownEl.textContent = `${liftoffReached ? "T+" : "T-"}${minutes.toString().padStart(2, '0')}:${seconds
     .toString()
     .padStart(2, "0")}`;
   for (const [eventTime, eventText] of Object.entries(eventTimes)) {
@@ -60,13 +60,14 @@ function toggleCountdown() {
 }
 
 function resetCountdown() {
-  clearInterval(interval);
+  const icon = document.getElementById("iconStartPauseBtn");clearInterval(interval);
   interval = null;
   time = 600;
   liftoffReached = false;
   eventsContainer.innerHTML = "";
   displayedEvents.clear();
-  startPauseBtn.textContent = "▶";
+  icon.classList.remove("fa-pause");
+    icon.classList.add("fa-play");
   updateDisplay();
 }
 
