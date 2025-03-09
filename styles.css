@@ -68,6 +68,10 @@ button:disabled {
     cursor: not-allowed;
 }
 
+#iconStartPauseBtn {
+    color: #ffffff;
+}
+
 .event-box {
     background: white;
     padding: 20px;

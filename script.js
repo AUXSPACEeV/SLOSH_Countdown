@@ -33,10 +33,14 @@ function adjustTime(amount) {
 }
 
 function toggleCountdown() {
+    const icon = document.getElementById("iconStartPauseBtn");
+
     if (interval) {
         clearInterval(interval);
         interval = null;
-        startPauseBtn.textContent = "▶";
+
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
     } else {
         interval = setInterval(() => {
             if (!liftoffReached) {
@@ -47,7 +51,9 @@ function toggleCountdown() {
             }
             updateDisplay();
         }, 1000);
-        startPauseBtn.textContent = "⏸";
+
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
     }
 }
 
