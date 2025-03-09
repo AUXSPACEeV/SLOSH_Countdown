@@ -128,23 +128,23 @@ clockElement.addEventListener("webkitmouseforcewillbegin", (event) => {
 setInterval(updateClock, 100);
 updateDisplay();
 
-document.addEventListener('wheel', function(event) {
+document.addEventListener('wheel', function (event) {
   if (event.ctrlKey) {
     event.preventDefault();
   }
-}, { passive: false });
+}, {passive: false});
 
-document.addEventListener('gesturestart', function(event) {
+document.addEventListener('gesturestart', function (event) {
   event.preventDefault();
-}, { passive: false });
+}, {passive: false});
 
-document.addEventListener('gesturechange', function(event) {
+document.addEventListener('gesturechange', function (event) {
   event.preventDefault();
-}, { passive: false });
+}, {passive: false});
 
-document.addEventListener('gestureend', function(event) {
+document.addEventListener('gestureend', function (event) {
   event.preventDefault();
-}, { passive: false });
+}, {passive: false});
 
 let lastTouchEnd = 0;
 document.addEventListener("touchend", function (event) {
@@ -153,4 +153,4 @@ document.addEventListener("touchend", function (event) {
     event.preventDefault();
   }
   lastTouchEnd = now;
-}, { passive: false });
+}, {passive: false});
