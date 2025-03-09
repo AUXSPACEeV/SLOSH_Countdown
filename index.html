@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <title>SLOSH Countdown</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="hidden-container">
+      <button id="toggleButton" onclick="toggleHiddenMenu()">
+        <i class="fa-solid fa-ellipsis"></i>
+      </button>
+      <div id="hiddenButtons" class="hidden hidden-buttons">
+        <button onclick="toggleFullScreen()">
+          <i class="fas fa-expand"></i>
+        </button>
+        <button onclick="toggleLock()">
+          <i class="fas fa-lock"></i>
+        </button>
+      </div>
+    </div>
 
-<div class="burger-container">
-    <button onclick="toggleBurgerMenu()">
-        <i class="fas fa-bars"></i>
-    </button>
-    <button onclick="toggleFullScreen()">
-        <i class="fas fa-expand"></i>
-    </button>
-    <button onclick="toggleLock()">
-        <i class="fas fa-lock"></i>
-    </button>
-</div>
+    <h1>SLOSH Countdown</h1>
 
-<h1>SLOSH Countdown</h1>
+    <div class="countdown-container">
+      <div id="countdown">T-10:00</div>
+      <button onclick="resetCountdown()">⟲</button>
+    </div>
 
-<div class="countdown-container">
-    <div id="countdown">T-10:00</div>
-    <button onclick="resetCountdown()">⟲</button>
-</div>
-
-<div class="buttons-container">
-    <button onclick="adjustTime(-1)">−</button>
-    <button id="startPauseBtn" onclick="toggleCountdown()">
+    <div class="buttons-container">
+      <button onclick="adjustTime(-1)">−</button>
+      <button id="startPauseBtn" onclick="toggleCountdown()">
         <i class="fa-solid fa-play" id="iconStartPauseBtn"></i>
-    </button>
-    <button onclick="adjustTime(1)">+</button>
-</div>
+      </button>
+      <button onclick="adjustTime(1)">+</button>
+    </div>
 
-<div class="events-container"></div>
+    <div class="events-container"></div>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
-

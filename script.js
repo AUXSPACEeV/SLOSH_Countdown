@@ -8,83 +8,96 @@ let displayedEvents = new Set();
 let liftoffReached = false;
 
 function updateDisplay() {
-    let minutes = Math.floor(Math.abs(time) / 60);
-    let seconds = Math.abs(time) % 60;
-    countdownEl.textContent = `${liftoffReached ? 'T+' : 'T-'}${minutes}:${seconds.toString().padStart(2, '0')}`;
-    for (const [eventTime, eventText] of Object.entries(eventTimes)) {
-        if (time <= eventTime && !displayedEvents.has(eventTime)) {
-            createEventBox(eventTime, eventText);
-            displayedEvents.add(eventTime);
-        }
+  let minutes = Math.floor(Math.abs(time) / 60);
+  let seconds = Math.abs(time) % 60;
+  countdownEl.textContent = `${liftoffReached ? "T+" : "T-"}${minutes}:${seconds
+    .toString()
+    .padStart(2, "0")}`;
+  for (const [eventTime, eventText] of Object.entries(eventTimes)) {
+    if (time <= eventTime && !displayedEvents.has(eventTime)) {
+      createEventBox(eventTime, eventText);
+      displayedEvents.add(eventTime);
     }
+  }
 }
 
 function adjustTime(amount) {
-    if (!liftoffReached) {
-        let newTime = time + amount;
-        if (time > 0 && newTime <= 0) {
-            time = 0;
-            liftoffReached = true;
-        } else {
-            time = newTime;
-        }
-        updateDisplay();
+  if (!liftoffReached) {
+    let newTime = time + amount;
+    if (time > 0 && newTime <= 0) {
+      time = 0;
+      liftoffReached = true;
+    } else {
+      time = newTime;
     }
+    updateDisplay();
+  }
 }
 
 function toggleCountdown() {
-    const icon = document.getElementById("iconStartPauseBtn");
+  const icon = document.getElementById("iconStartPauseBtn");
 
-    if (interval) {
-        clearInterval(interval);
-        interval = null;
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
 
-        icon.classList.remove("fa-pause");
-        icon.classList.add("fa-play");
-    } else {
-        interval = setInterval(() => {
-            if (!liftoffReached) {
-                time--;
-                if (time === 0) liftoffReached = true;
-            } else {
-                time++;
-            }
-            updateDisplay();
-        }, 1000);
+    icon.classList.remove("fa-pause");
+    icon.classList.add("fa-play");
+  } else {
+    interval = setInterval(() => {
+      if (!liftoffReached) {
+        time--;
+        if (time === 0) liftoffReached = true;
+      } else {
+        time++;
+      }
+      updateDisplay();
+    }, 1000);
 
-        icon.classList.remove("fa-play");
-        icon.classList.add("fa-pause");
-    }
+    icon.classList.remove("fa-play");
+    icon.classList.add("fa-pause");
+  }
 }
 
 function resetCountdown() {
-    clearInterval(interval);
-    interval = null;
-    time = 600;
-    liftoffReached = false;
-    eventsContainer.innerHTML = "";
-    displayedEvents.clear();
-    startPauseBtn.textContent = "▶";
-    updateDisplay();
+  clearInterval(interval);
+  interval = null;
+  time = 600;
+  liftoffReached = false;
+  eventsContainer.innerHTML = "";
+  displayedEvents.clear();
+  startPauseBtn.textContent = "▶";
+  updateDisplay();
 }
 
 function createEventBox(eventTime, eventText) {
-    let eventBox = document.createElement("div");
-    eventBox.classList.add("event-box");
-    eventBox.innerHTML = `<span>${eventText}</span> <button onclick="this.parentElement.remove(); displayedEvents.delete(${eventTime})">✔</button>`;
-    eventsContainer.appendChild(eventBox);
+  let eventBox = document.createElement("div");
+  eventBox.classList.add("event-box");
+  eventBox.innerHTML = `<span>${eventText}</span> <button onclick="this.parentElement.remove(); displayedEvents.delete(${eventTime})">✔</button>`;
+  eventsContainer.appendChild(eventBox);
 }
 
-function toggleBurgerMenu() {
+function toggleHiddenMenu() {
+  const hiddenButtons = document.getElementById("hiddenButtons");
+  const toggleButtonIcon = document.querySelector("#toggleButton i");
 
+  hiddenButtons.classList.toggle("hidden");
+
+  if (hiddenButtons.classList.contains("hidden")) {
+    toggleButtonIcon.classList.remove("fa-chevron-left");
+    toggleButtonIcon.classList.add("fa-ellipsis");
+  } else {
+    toggleButtonIcon.classList.remove("fa-ellipsis");
+    toggleButtonIcon.classList.add("fa-chevron-left");
+  }
 }
 
 function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-    } else {
-        document.exitFullscreen();
-    }
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
 }
 
 updateDisplay();
