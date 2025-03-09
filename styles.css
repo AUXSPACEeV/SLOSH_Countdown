@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #1f487e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+h1 {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+#countdown {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-grow: 0;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+button {
+    background-color: #1f487e;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 50px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background-color: #16355e;
+}
+button:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+}
+.event-box {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#events-container {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px
+}
