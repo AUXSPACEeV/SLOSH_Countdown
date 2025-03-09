@@ -118,3 +118,7 @@ button:disabled {
 .hidden-buttons button {
   background-color: #527db5;
 }
+
+.clock {
+    font-size: 1.5rem;
+}

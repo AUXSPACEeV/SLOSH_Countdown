@@ -7,6 +7,8 @@ const eventTimes = {600: "T-10 minutes: Systems Check", 0: "Liftoff!"};
 let displayedEvents = new Set();
 let liftoffReached = false;
 
+let clockUTC = false;
+
 function updateDisplay() {
   let minutes = Math.floor(Math.abs(time) / 60);
   let seconds = Math.abs(time) % 60;
@@ -19,6 +21,16 @@ function updateDisplay() {
       displayedEvents.add(eventTime);
     }
   }
+}
+
+function updateClock() {
+    let clockString;
+    if (clockUTC) {
+        clockString = new Date().toISOString().slice(11, 19);
+    } else {
+        clockString = new Date().toString().slice(16, 24);
+    }
+    document.getElementById('clock').textContent = clockString;
 }
 
 function adjustTime(amount) {
@@ -101,4 +113,5 @@ function toggleFullScreen() {
   }
 }
 
+setInterval(updateClock, 100);
 updateDisplay();
