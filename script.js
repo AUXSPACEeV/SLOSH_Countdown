@@ -75,4 +75,16 @@ function createEventBox(eventTime, eventText) {
     eventsContainer.appendChild(eventBox);
 }
 
+function toggleBurgerMenu() {
+
+}
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
 updateDisplay();
