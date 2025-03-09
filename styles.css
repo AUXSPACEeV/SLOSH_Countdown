@@ -11,6 +11,8 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  touch-action: manipulation;
+  overflow: hidden;
 }
 
 h1 {
@@ -121,4 +123,9 @@ button:disabled {
 
 .clock {
     font-size: 1.5rem;
+}
+
+.hidden-container, .buttons-container, .clock {
+  -webkit-user-select: none;
+  user-select: none;
 }
