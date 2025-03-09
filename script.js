@@ -127,3 +127,21 @@ clockElement.addEventListener("webkitmouseforcewillbegin", (event) => {
 
 setInterval(updateClock, 100);
 updateDisplay();
+
+document.addEventListener('wheel', function(event) {
+  if (event.ctrlKey) {
+    event.preventDefault();
+  }
+}, { passive: false });
+
+document.addEventListener('gesturestart', function(event) {
+  event.preventDefault();
+}, { passive: false });
+
+document.addEventListener('gesturechange', function(event) {
+  event.preventDefault();
+}, { passive: false });
+
+document.addEventListener('gestureend', function(event) {
+  event.preventDefault();
+}, { passive: false });
