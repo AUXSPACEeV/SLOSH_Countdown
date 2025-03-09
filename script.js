@@ -114,7 +114,14 @@ function toggleFullScreen() {
   }
 }
 
-document.getElementById('clock').addEventListener('click', () => {
+const clockElement = document.getElementById('clock');
+
+clockElement.addEventListener("click", () => {
+  clockUTC = !clockUTC;
+});
+
+clockElement.addEventListener("webkitmouseforcewillbegin", (event) => {
+  event.preventDefault();
   clockUTC = !clockUTC;
 });
 
