@@ -12,10 +12,21 @@ body {
     height: 100vh;
     margin: 0;
 }
+
 h1 {
     margin-bottom: 10px;
     font-weight: 700;
 }
+
+.countdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px
+}
+
 #countdown {
     font-size: 2em;
     font-weight: bold;
@@ -27,11 +38,13 @@ h1 {
     text-align: center;
     flex-grow: 0;
 }
-.buttons {
+
+.buttons-container {
     display: flex;
     gap: 10px;
     margin: 15px 0;
 }
+
 button {
     background-color: #1f487e;
     color: white;
@@ -45,13 +58,16 @@ button {
     cursor: pointer;
     transition: background 0.2s;
 }
+
 button:hover {
     background-color: #16355e;
 }
+
 button:disabled {
     background-color: #b0bec5;
     cursor: not-allowed;
 }
+
 .event-box {
     background: white;
     padding: 20px;
@@ -64,19 +80,11 @@ button:disabled {
     justify-content: space-between;
     align-items: center;
 }
+
 #events-container {
     margin-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.countdown-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px
 }
