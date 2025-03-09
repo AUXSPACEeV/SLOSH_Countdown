@@ -7,7 +7,7 @@ const eventTimes = {600: "T-10 minutes: Systems Check", 0: "Liftoff!"};
 let displayedEvents = new Set();
 let liftoffReached = false;
 
-let clockUTC = false;
+let clockUTC = true;
 
 function updateDisplay() {
   let minutes = Math.floor(Math.abs(time) / 60);
@@ -24,13 +24,13 @@ function updateDisplay() {
 }
 
 function updateClock() {
-    let clockString;
-    if (clockUTC) {
-        clockString = new Date().toISOString().slice(11, 19);
-    } else {
-        clockString = new Date().toString().slice(16, 24);
-    }
-    document.getElementById('clock').textContent = clockString;
+  let clockString;
+  if (clockUTC) {
+    clockString = 'UTC ' + new Date().toISOString().slice(11, 19);
+  } else {
+    clockString = 'LT ' + new Date().toString().slice(16, 24);
+  }
+  document.getElementById('clock').textContent = clockString;
 }
 
 function adjustTime(amount) {
@@ -72,14 +72,15 @@ function toggleCountdown() {
 }
 
 function resetCountdown() {
-  const icon = document.getElementById("iconStartPauseBtn");clearInterval(interval);
+  const icon = document.getElementById("iconStartPauseBtn");
+  clearInterval(interval);
   interval = null;
   time = 600;
   liftoffReached = false;
   eventsContainer.innerHTML = "";
   displayedEvents.clear();
   icon.classList.remove("fa-pause");
-    icon.classList.add("fa-play");
+  icon.classList.add("fa-play");
   updateDisplay();
 }
 
@@ -112,6 +113,10 @@ function toggleFullScreen() {
     document.exitFullscreen();
   }
 }
+
+document.getElementById('clock').addEventListener('click', () => {
+  clockUTC = !clockUTC;
+});
 
 setInterval(updateClock, 100);
 updateDisplay();
