@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"
     />
     <title>SLOSH Countdown</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -25,6 +25,9 @@
         <button onclick="toggleLock()">
           <i class="fas fa-lock"></i>
         </button>
+        <button onclick="resetCountdown()">
+          <i class="fa-solid fa-arrow-rotate-right"></i>
+        </button>
       </div>
     </div>
 
@@ -32,17 +35,20 @@
 
     <div class="clock" id="clock"></div>
 
-<div class="countdown-container">
+    <div class="countdown-container">
       <div id="countdown">T-10:00</div>
-      <button onclick="resetCountdown()">⟲</button>
     </div>
 
     <div class="buttons-container">
-      <button onclick="adjustTime(-1)">−</button>
+      <button onclick="adjustTime(+1)">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
       <button id="startPauseBtn" onclick="toggleCountdown()">
         <i class="fa-solid fa-play" id="iconStartPauseBtn"></i>
       </button>
-      <button onclick="adjustTime(1)">+</button>
+      <button onclick="adjustTime(-1)">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
     </div>
 
     <div class="events-container" id="events-container"></div>

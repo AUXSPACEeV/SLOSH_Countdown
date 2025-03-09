@@ -77,8 +77,8 @@ function resetCountdown() {
   interval = null;
   time = 600;
   liftoffReached = false;
-  eventsContainer.innerHTML = "";
-  displayedEvents.clear();
+  // eventsContainer.innerHTML = "";
+  // displayedEvents.clear();
   icon.classList.remove("fa-pause");
   icon.classList.add("fa-play");
   updateDisplay();

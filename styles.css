@@ -28,7 +28,7 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   padding: 10px;
 }
@@ -47,7 +47,7 @@ h1 {
 
 .buttons-container {
   display: flex;
-  gap: 10px;
+  gap: 2rem;
   margin: 15px 0;
 }
 
@@ -126,7 +126,7 @@ button:disabled {
 }
 
 .clock {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .hidden-container, .buttons-container, .clock {
