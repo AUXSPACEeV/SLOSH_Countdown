@@ -1,9 +1,5 @@
-# SLOSH Countdown
-
-Simple Countdown for the launch of our experiment
-
-
-
+# SLOSH_Countdown
+Simple countdown to assist with the launch of the SLOSH experiment
 
 ## Icons & Fonts
 This project uses [Font Awesome Free](https://fontawesome.com) for icons.  
