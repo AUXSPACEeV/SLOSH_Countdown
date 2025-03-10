@@ -3,6 +3,11 @@ const START_TIME = -600
 let time = -10;
 let countdownInterval;
 
+let flightEvents;
+let currentFlightEventNumber = 0;
+
+const nextEventEvent = new CustomEvent('next-event', {});
+
 let clockUTC = true;
 
 function updateDisplay() {
@@ -10,6 +15,7 @@ function updateDisplay() {
     const countdownEl = document.getElementById("countdown");
     countdownEl.textContent = time === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(time);
     updateClock();
+    updateCurrentEventCountdown();
   }, 0);
 }
 
@@ -18,10 +24,7 @@ function convertTimeSecondsToTimeMinutes(timeSeconds) {
   const minutes = (Math.trunc(Math.abs(timeSeconds) / 60)).toString().padStart(2, '0');
   const seconds = (Math.abs(timeSeconds) % 60).toString().padStart(2, "0");
 
-  const timeMinutesString = sign + minutes + ':' + seconds
-  console.log(timeMinutesString);
-
-  return timeMinutesString;
+  return sign + minutes + ':' + seconds;
 }
 
 function updateClock() {
@@ -118,20 +121,85 @@ function createListEl(eventTime, eventText) {
 
 function loadFlightEventsList() {
   const eventsScrollContainer = document.getElementById("event-scroll-container");
-  fetch('flightEvents.json')
-    .then(response => response.json())
-    .then(data => {
-      const events = data.events;
-      events.sort((a, b) => a.time - b.time);
-      events.forEach(event => {
-        const listEl = createListEl(event.time, event.event);
-        eventsScrollContainer.appendChild(listEl)
-      });
-    })
-    .catch(error => {
-      console.error('Error loading JSON:', error);
-    });
+  flightEvents.forEach(event => {
+    const listEl = createListEl(event.time, event.event);
+    eventsScrollContainer.appendChild(listEl)
+  });
 }
+
+function loadCurrentFlightEvent() {
+  if (currentFlightEventNumber < flightEvents.length) {
+    const currentFlightEvent = flightEvents[currentFlightEventNumber]
+    createCurrentEvent(currentFlightEvent.time, currentFlightEvent.event, currentFlightEvent.confirmable);
+  }
+}
+
+function loadLastFlightEvent() {
+  if (currentFlightEventNumber > 0) {
+    const lastEventEl = document.getElementById("last-event");
+    let lastEvent = flightEvents[currentFlightEventNumber - 1]
+    lastEventEl.innerHTML = createListEl(lastEvent.time, lastEvent.event).innerHTML;
+  }
+}
+
+function createCurrentEvent(eventTime, event, confirmable) {
+  const currentEventCountdownEl = document.getElementById("current-event-countdown");
+  const currentEventTextEl = document.getElementById("current-event-text");
+  const currentEventCheckEl = document.getElementById("current-event-checkbox");
+
+  const currentEventDeltaTime = time - eventTime
+
+  currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
+  currentEventTextEl.innerText = event;
+
+  if (currentEventCheckEl._clickHandler) {
+    currentEventCheckEl.removeEventListener('click', currentEventCheckEl._clickHandler);
+    currentEventCheckEl._clickHandler = null;
+  }
+
+  if (confirmable) {
+    currentEventCheckEl.innerHTML = '<i class="fa-regular fa-square"></i>'
+
+    const handleEventClick = function () {
+      document.dispatchEvent(nextEventEvent);
+    };
+    currentEventCheckEl._clickHandler = handleEventClick;
+    currentEventCheckEl.addEventListener('click', handleEventClick);
+  } else {
+    currentEventCheckEl.innerHTML = ''
+  }
+}
+
+function updateCurrentEventCountdown() {
+  const currentEventCountdownEl = document.getElementById("current-event-countdown");
+  const currentEventDeltaTime = time - flightEvents[currentFlightEventNumber].time
+
+  if (currentEventDeltaTime === 0) {
+    currentEventCountdownEl.innerText = 'GO!'
+  } else {
+    currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
+  }
+
+  if (!flightEvents[currentFlightEventNumber].confirmable && currentEventDeltaTime > 0) {
+    document.dispatchEvent(nextEventEvent);
+  }
+}
+
+
+function removeElementFromEventList() {
+  const eventsScrollContainer = document.getElementById("event-scroll-container");
+  let removedEl = eventsScrollContainer.firstElementChild
+  if (removedEl !== null) {
+    removedEl.remove();
+  }
+}
+
+function loadNextFlightEvent() {
+  loadCurrentFlightEvent();
+  loadLastFlightEvent();
+  removeElementFromEventList();
+}
+
 
 function addEventListeners() {
   // const clockElement = document.getElementById('clock');
@@ -144,6 +212,14 @@ function addEventListeners() {
   //   event.preventDefault();
   //   clockUTC = !clockUTC;
   // });
+
+  document.addEventListener('next-event', () => {
+    console.log("Next event");
+    if (currentFlightEventNumber < flightEvents.length) {
+      currentFlightEventNumber++;
+      loadNextFlightEvent();
+    }
+  });
 
   document.addEventListener('wheel', function (event) {
     if (event.ctrlKey) {
@@ -200,6 +276,22 @@ function addEventListeners() {
   })
 }
 
-loadFlightEventsList();
+function loadFlightEventsJSON() {
+  fetch('flightEvents.json')
+    .then(response => response.json())
+    .then(data => {
+      const events = data.events;
+      events.sort((a, b) => a.time - b.time);
+
+      flightEvents = events;
+      loadFlightEventsList();
+      loadNextFlightEvent();
+      setInterval(updateDisplay, 100);
+    })
+    .catch(error => {
+      console.error('Error loading JSON:', error);
+    });
+}
+
+loadFlightEventsJSON();
 addEventListeners();
-setInterval(updateDisplay, 100);
