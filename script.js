@@ -180,7 +180,10 @@ function updateCurrentEventCountdown() {
     currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
   }
 
-  if (!flightEvents[currentFlightEventNumber].confirmable && currentEventDeltaTime > 0) {
+  if (!flightEvents[currentFlightEventNumber].confirmable
+      && currentEventDeltaTime > 0
+      && currentFlightEventNumber < flightEvents.length - 1
+  ) {
     document.dispatchEvent(nextEventEvent);
   }
 }
