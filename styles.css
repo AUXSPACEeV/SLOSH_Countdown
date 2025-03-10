@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
 
+* {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none
+}
+
 body {
   font-family: "Raleway", sans-serif;
   background-color: #f8f9fa;
@@ -11,12 +24,6 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
-}
-
-html body {
-  touch-action: none;
-  overscroll-behavior: none;
 }
 
 body, .page-container {
@@ -176,11 +183,4 @@ button:disabled {
 
 .listElementEvent {
 
-}
-
-* {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }

@@ -154,14 +154,50 @@ function addEventListeners() {
   document.addEventListener('gesturestart', function (event) {
     event.preventDefault();
   }, {passive: false});
-
   document.addEventListener('gesturechange', function (event) {
     event.preventDefault();
   }, {passive: false});
-
   document.addEventListener('gestureend', function (event) {
     event.preventDefault();
   }, {passive: false});
+
+  let drags = new Set()
+  document.addEventListener("touchmove", function(event){
+    if(!event.isTrusted)return
+    Array.from(event.changedTouches).forEach(function(touch){
+      drags.add(touch.identifier)
+    })
+  })
+  document.addEventListener("touchend", function(event){
+    if(!event.isTrusted)return
+    let isDrag = false
+    Array.from(event.changedTouches).forEach(function(touch){
+      if(drags.has(touch.identifier)){
+        isDrag = true
+      }
+      drags.delete(touch.identifier)
+    })
+    if(!isDrag && document.activeElement === document.body){
+      event.preventDefault()
+      event.stopPropagation()
+      event.target.focus()
+      event.target.click()
+      event.target.dispatchEvent(new TouchEvent("touchend", {
+        bubbles: event.bubbles,
+        cancelable: event.cancelable,
+        composed: event.composed,
+        touches: event.touches,
+        targetTouches: event.targetTouches,
+        changedTouches: event.changedTouches,
+        ctrlKey: event.ctrlKey,
+        shiftKey: event.shiftKey,
+        altKey: event.altKey,
+        metaKey: event.metaKey,
+        view: event.view,
+        detail: event.detail
+      }))
+    }
+  })
 }
 
 loadFlightEventsList();
