@@ -23,12 +23,12 @@ jobs:
       - name: Prepare deployment directory
         run: |
           if [ "${{ env.BRANCH_NAME }}" = "main" ]; then
-            rm -f gh-pages/*
-            cp ./* gh-pages/
+            find ./gh-pages -maxdepth 1 -type f -exec rm -rf ./{} \;
+            find ./ -maxdepth 1 -type f -exec cp {} ./gh-pages \;
           else
-            rm -rf gh-pages/${{ env.BRANCH_NAME }}
-            mkdir -p gh-pages/${{ env.BRANCH_NAME }}
-            cp ./* gh-pages/${{ env.BRANCH_NAME }}
+            rm -rf ./gh-pages/${{ env.BRANCH_NAME }}
+            mkdir -p ./gh-pages/${{ env.BRANCH_NAME }}
+            find ./ -maxdepth 1 -type f -exec cp ./{} ./gh-pages/${{ env.BRANCH_NAME }} \;
           fi
 
       - name: Deploy to GitHub Pages
