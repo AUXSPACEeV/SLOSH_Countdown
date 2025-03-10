@@ -12,25 +12,34 @@ jobs:
     steps:
       - name: Checkout modified branch
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: ./updates
 
       - name: Normalize branch name
         run: echo "BRANCH_NAME=$(echo ${{ github.ref_name }} | sed 's|/|-|g')" >> $GITHUB_ENV
 
       - name: Clone existing gh-pages branch
-        run: git clone --branch=gh-pages https://github.com/${{ github.repository }}.git gh-pages
+        run: git clone --branch=gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git ./gh-pages
 
-      - name: Prepare deployment directory
+      - name: Copy changes to deployment directory
         run: |
-          if [ "${{ env.BRANCH_NAME }}" = "main" ]; then
-            find ./gh-pages -maxdepth 1 -type f -exec rm -rf {} \;
-            find ./ -maxdepth 1 -type f -exec cp {} ./gh-pages \;
-          else
-            rm -rf ./gh-pages/${{ env.BRANCH_NAME }}
-            mkdir -p ./gh-pages/${{ env.BRANCH_NAME }}
-            find ./ -maxdepth 1 -type f -exec cp {} ./gh-pages/${{ env.BRANCH_NAME }} \;
-          fi
+          rm -rf ./gh-pages/${{ env.BRANCH_NAME }}
+          mkdir -p ./gh-pages/${{ env.BRANCH_NAME }}
+          cp -r ./updates/* ./gh-pages/${{ env.BRANCH_NAME }}
 
-      - name: Deploy to GitHub Pages
+      - name: Remove existing symbolic links from deployment directory
+        if: env.BRANCH_NAME == 'main'
+        run: find ./gh-pages -type l -exec rm {} \;
+
+      - name: Create symbolic links in deployment directory
+        if: env.BRANCH_NAME == 'main'
+        run: |
+          for file in ./gh-pages/main/*; do
+            ln -sfn "$file" "./gh-pages/$(basename "$file")"
+          done
+
+      - name: Deploy deployment directory to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
