@@ -36,7 +36,7 @@ jobs:
         if: env.BRANCH_NAME == 'main'
         run: |
           for file in ./gh-pages/main/*; do
-            ln -sfn "$file" "./gh-pages/$(basename "$file")"
+            ln -f "$file" "./gh-pages/$(basename "$file")"
           done
 
       - name: Deploy deployment directory to GitHub Pages
