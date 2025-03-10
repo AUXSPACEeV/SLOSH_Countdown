@@ -10,19 +10,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout branch
+      - name: Checkout modified branch
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref_name }}
 
       - name: Normalize branch name
         run: echo "BRANCH_NAME=$(echo ${{ github.ref_name }} | sed 's|/|-|g')" >> $GITHUB_ENV
+
+      - name: Clone gh-pages branch
+        run: |
+          git clone --depth=1 --branch=gh-pages https://github.com/${{ github.repository }}.git gh-pages || mkdir gh-pages
+
+      - name: Prepare deployment directory
+        run: |
+          if [ "${{ env.BRANCH_NAME }}" = "main" ]; then
+            rm -f gh-pages/*
+            cp ./* gh-pages/
+          else
+            rm -rf gh-pages/${{ env.BRANCH_NAME }}
+            mkdir -p gh-pages/${{ env.BRANCH_NAME }}
+            cp ./* gh-pages/${{ env.BRANCH_NAME }}
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: .
-          destination_dir: ${{ env.BRANCH_NAME == 'main' && '.' || env.BRANCH_NAME }}
+          publish_dir: gh-pages
           force_orphan: true
