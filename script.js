@@ -1,24 +1,27 @@
-let time = 600;
-let interval;
-const countdownEl = document.getElementById("countdown");
-const eventTimes = {600: "T-10 minutes: Systems Check", 0: "Liftoff!"};
-let displayedEvents = new Set();
-let liftoffReached = false;
+const START_TIME = -600
+
+let time = -10;
+let countdownInterval;
 
 let clockUTC = true;
 
 function updateDisplay() {
-  let minutes = Math.floor(Math.abs(time) / 60);
-  let seconds = Math.abs(time) % 60;
-  countdownEl.textContent = `${liftoffReached ? "T+" : "T-"}${minutes.toString().padStart(2, '0')}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
-  for (const [eventTime, eventText] of Object.entries(eventTimes)) {
-    if (time <= eventTime && !displayedEvents.has(eventTime)) {
-      createEventBox(eventTime, eventText);
-      displayedEvents.add(eventTime);
-    }
-  }
+  setTimeout(() => {
+    const countdownEl = document.getElementById("countdown");
+    countdownEl.textContent = time === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(time);
+    updateClock();
+  }, 0);
+}
+
+function convertTimeSecondsToTimeMinutes(timeSeconds) {
+  const sign = timeSeconds < 0 ? '-' : '+'
+  const minutes = (Math.trunc(Math.abs(timeSeconds) / 60)).toString().padStart(2, '0');
+  const seconds = (Math.abs(timeSeconds) % 60).toString().padStart(2, "0");
+
+  const timeMinutesString = sign + minutes + ':' + seconds
+  console.log(timeMinutesString);
+
+  return timeMinutesString;
 }
 
 function updateClock() {
@@ -30,62 +33,48 @@ function updateClock() {
 }
 
 function adjustTime(amount) {
-  if (!liftoffReached) {
-    let newTime = time + amount;
-    if (time > 0 && newTime <= 0) {
-      time = 0;
-      liftoffReached = true;
-    } else {
-      time = newTime;
-    }
-    updateDisplay();
+  if (time < 0 || !countdownInterval) {
+    time = time + amount
   }
 }
 
-function toggleCountdown() {
-  const icon = document.getElementById("iconStartPauseBtn");
-
-  if (interval) {
-    clearInterval(interval);
-    interval = null;
-
-    icon.classList.remove("fa-pause");
-    icon.classList.add("fa-play");
+function toggleIconStartPauseBtn(clear = false) {
+  const iconStartPauseBtn = document.getElementById("iconStartPauseBtn");
+  if (iconStartPauseBtn.classList.contains("fa-play") && !clear) {
+    iconStartPauseBtn.classList.remove("fa-play");
+    iconStartPauseBtn.classList.add("fa-pause");
   } else {
-    interval = setInterval(() => {
-      if (!liftoffReached) {
-        time--;
-        if (time === 0) liftoffReached = true;
-      } else {
-        time++;
-      }
-      updateDisplay();
-    }, 1000);
+    iconStartPauseBtn.classList.remove("fa-pause");
+    iconStartPauseBtn.classList.add("fa-play");
+  }
+}
 
-    icon.classList.remove("fa-play");
-    icon.classList.add("fa-pause");
+function clearCountdownInterval() {
+  clearInterval(countdownInterval);
+  countdownInterval = null;
+}
+
+function toggleCountdown() {
+  if (time > 0) {
+    return;
+  }
+
+  if (countdownInterval) {
+    clearCountdownInterval();
+    toggleIconStartPauseBtn();
+  } else {
+    countdownInterval = setInterval(() => {
+      time++;
+    }, 1000);
+    toggleIconStartPauseBtn()
   }
 }
 
 function resetCountdown() {
-  const icon = document.getElementById("iconStartPauseBtn");
-  clearInterval(interval);
-  interval = null;
-  time = 600;
-  liftoffReached = false;
-  // eventsContainer.innerHTML = "";
-  // displayedEvents.clear();
-  icon.classList.remove("fa-pause");
-  icon.classList.add("fa-play");
-  updateDisplay();
+  clearCountdownInterval();
+  toggleIconStartPauseBtn(true)
+  time = START_TIME;
 }
-
-// function createEventBox(eventTime, eventText) {
-//   let eventBox = document.createElement("div");
-//   eventBox.classList.add("event-box");
-//   eventBox.innerHTML = `<span>${eventText}</span> <button onclick="this.parentElement.remove(); displayedEvents.delete(${eventTime})">✔</button>`;
-//   eventsContainer.appendChild(eventBox);
-// }
 
 function toggleHiddenMenu() {
   const hiddenButtons = document.getElementById("hiddenButtons");
@@ -110,21 +99,21 @@ function toggleFullScreen() {
   }
 }
 
-function createListElement(eventTime, eventText) {
-  const listElement = document.createElement("div");
-  const listElementTime = document.createElement("div");
-  const listElementEvent = document.createElement("div");
-  listElement.classList.add("listElement");
-  listElement.appendChild(listElementTime);
-  listElement.appendChild(listElementEvent);
+function createListEl(eventTime, eventText) {
+  const listEl = document.createElement("div");
+  const listElTime = document.createElement("div");
+  const listElEvent = document.createElement("div");
+  listEl.classList.add("listElement");
+  listEl.appendChild(listElTime);
+  listEl.appendChild(listElEvent);
 
-  listElementTime.classList.add("listElementTime");
-  listElementTime.innerText = eventTime;
+  listElTime.classList.add("listElementTime");
+  listElTime.innerText = eventTime;
 
-  listElementEvent.classList.add("listElementEvent");
-  listElementEvent.innerText = eventText;
+  listElEvent.classList.add("listElementEvent");
+  listElEvent.innerText = eventText;
 
-  return listElement;
+  return listEl;
 }
 
 function loadFlightEventsList() {
@@ -135,8 +124,8 @@ function loadFlightEventsList() {
       const events = data.events;
       events.sort((a, b) => a.time - b.time);
       events.forEach(event => {
-        const listElement = createListElement(event.time, event.event);
-        eventsContainer.appendChild(listElement)
+        const listEl = createListEl(event.time, event.event);
+        eventsContainer.appendChild(listEl)
       });
     })
     .catch(error => {
@@ -175,7 +164,6 @@ function addEventListeners() {
   }, {passive: false});
 }
 
-addEventListeners();
-setInterval(updateClock, 100);
 loadFlightEventsList();
-updateDisplay();
+addEventListeners();
+setInterval(updateDisplay, 100);
