@@ -215,7 +215,7 @@ function addEventListeners() {
 
   document.addEventListener('next-event', () => {
     console.log("Next event");
-    if (currentFlightEventNumber < flightEvents.length) {
+    if (currentFlightEventNumber < flightEvents.length - 1) {
       currentFlightEventNumber++;
       loadNextFlightEvent();
     }
