@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"
+    />
+    <title>SLOSH Countdown</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-container">
+
+      <div class="fixed-section">
+        <div class="hidden-container">
+          <button id="toggleButton" onclick="toggleHiddenMenu()">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+          <div id="hiddenButtons" class="hidden hidden-buttons">
+            <button onclick="toggleFullScreen()">
+              <i class="fas fa-expand"></i>
+            </button>
+            <button onclick="toggleLock()">
+              <i class="fas fa-lock"></i>
+            </button>
+            <button onclick="resetCountdown()">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <h1>SLOSH Countdown</h1>
+
+        <div class="clock-container">
+          <div class="clock" id="clockUTC"></div>
+          <div class="clock" id="clockLT"></div>
+        </div>
+
+        <div class="countdown-container">
+          <div id="countdown"></div>
+        </div>
+
+        <div class="buttons-container">
+          <button onclick="adjustTime(-1)">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button id="startPauseBtn" onclick="toggleCountdown()">
+            <i class="fa-solid fa-play" id="iconStartPauseBtn"></i>
+          </button>
+          <button onclick="adjustTime(+1)">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="events-container">
+        <div class="listElement"></div>
+        <div class="event-box"></div>
+        <div class="event-scroll-container" id="event-scroll-container"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

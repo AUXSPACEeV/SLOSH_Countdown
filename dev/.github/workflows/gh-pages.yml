@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches-ignore:
+      - "gh-pages"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout modified branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: ./updates
+
+      - name: Normalize branch name
+        run: echo "BRANCH_NAME=$(echo ${{ github.ref_name }} | sed 's|/|-|g')" >> $GITHUB_ENV
+
+      - name: Clone existing gh-pages branch
+        run: git clone --branch=gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git ./gh-pages
+
+      - name: Copy changes to deployment directory
+        run: |
+          rm -rf ./gh-pages/${{ env.BRANCH_NAME }}
+          mkdir -p ./gh-pages/${{ env.BRANCH_NAME }}
+          rsync -a --copy-unsafe-links ./updates/ ./gh-pages/${{ env.BRANCH_NAME }}/
+
+      - name: Remove existing symbolic links from deployment directory
+        if: env.BRANCH_NAME == 'main'
+        run: find ./gh-pages -type l -exec rm {} \;
+
+      - name: Create symbolic links in deployment directory
+        if: env.BRANCH_NAME == 'main'
+        run: |
+          for file in ./gh-pages/main/*; do
+            ln -sfn "$file" "./gh-pages/$(basename "$file")"
+          done
+
+      - name: Deploy deployment directory to GitHub Pages
+        run: |
+          cd ./gh-pages
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          COMMIT_HASH=$(git rev-parse HEAD)
+          git checkout --orphan gh-pages-temp
+          git add -A
+          git commit -m "deploy: $COMMIT_HASH"
+          git branch -D gh-pages
+          git branch -m gh-pages
+          git push origin gh-pages --force
