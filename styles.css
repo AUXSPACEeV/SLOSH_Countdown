@@ -125,6 +125,12 @@ button:disabled {
   background-color: #527db5;
 }
 
+.clock-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
 .clock {
   font-size: 1.5rem;
 }

@@ -24,13 +24,11 @@ function updateDisplay() {
 }
 
 function updateClock() {
-  let clockString;
-  if (clockUTC) {
-    clockString = 'UTC ' + new Date().toISOString().slice(11, 19);
-  } else {
-    clockString = 'LT ' + new Date().toString().slice(16, 24);
-  }
-  document.getElementById('clock').textContent = clockString;
+  const timeUTC = 'UTC ' + new Date().toISOString().slice(11, 19);
+  const timeLT = 'LT ' + new Date().toString().slice(16, 24);
+
+  document.getElementById('clockUTC').textContent = timeUTC;
+  document.getElementById('clockLT').textContent = timeLT;
 }
 
 function adjustTime(amount) {
