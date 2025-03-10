@@ -14,49 +14,55 @@
     />
   </head>
   <body>
-    <div class="hidden-container">
-      <button id="toggleButton" onclick="toggleHiddenMenu()">
-        <i class="fa-solid fa-ellipsis"></i>
-      </button>
-      <div id="hiddenButtons" class="hidden hidden-buttons">
-        <button onclick="toggleFullScreen()">
-          <i class="fas fa-expand"></i>
-        </button>
-        <button onclick="toggleLock()">
-          <i class="fas fa-lock"></i>
-        </button>
-        <button onclick="resetCountdown()">
-          <i class="fa-solid fa-arrow-rotate-right"></i>
-        </button>
+    <div class="page-container">
+
+      <div class="fixed-section">
+        <div class="hidden-container">
+          <button id="toggleButton" onclick="toggleHiddenMenu()">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+          <div id="hiddenButtons" class="hidden hidden-buttons">
+            <button onclick="toggleFullScreen()">
+              <i class="fas fa-expand"></i>
+            </button>
+            <button onclick="toggleLock()">
+              <i class="fas fa-lock"></i>
+            </button>
+            <button onclick="resetCountdown()">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <h1>SLOSH Countdown</h1>
+
+        <div class="clock-container">
+          <div class="clock" id="clockUTC"></div>
+          <div class="clock" id="clockLT"></div>
+        </div>
+
+        <div class="countdown-container">
+          <div id="countdown"></div>
+        </div>
+
+        <div class="buttons-container">
+          <button onclick="adjustTime(-1)">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button id="startPauseBtn" onclick="toggleCountdown()">
+            <i class="fa-solid fa-play" id="iconStartPauseBtn"></i>
+          </button>
+          <button onclick="adjustTime(+1)">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <h1>SLOSH Countdown</h1>
-
-    <div class="clock-container">
-      <div class="clock" id="clockUTC"></div>
-      <div class="clock" id="clockLT"></div>
-    </div>
-
-    <div class="countdown-container">
-      <div id="countdown"></div>
-    </div>
-
-    <div class="buttons-container">
-      <button onclick="adjustTime(-1)">
-        <i class="fa-solid fa-angle-left"></i>
-      </button>
-      <button id="startPauseBtn" onclick="toggleCountdown()">
-        <i class="fa-solid fa-play" id="iconStartPauseBtn"></i>
-      </button>
-      <button onclick="adjustTime(+1)">
-        <i class="fa-solid fa-angle-right"></i>
-      </button>
-    </div>
-
-    <div class="events-container" id="events-container">
-      <div class="listElement"></div>
-      <div class="event-box"></div>
+      <div class="events-container">
+        <div class="listElement"></div>
+        <div class="event-box"></div>
+        <div class="event-scroll-container" id="event-scroll-container"></div>
+      </div>
     </div>
 
     <script src="script.js"></script>

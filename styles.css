@@ -19,6 +19,17 @@ html body {
   overscroll-behavior: none;
 }
 
+body, .page-container {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-section {
+  flex: auto;
+}
+
 h1 {
   margin: 10px;
   font-weight: 700;
@@ -47,6 +58,9 @@ h1 {
 
 .buttons-container {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   margin: 15px 0;
 }
@@ -91,15 +105,6 @@ button:disabled {
   align-items: center;
 }
 
-.events-container {
-  margin-top: 30px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .hidden-container {
   display: flex;
   flex-direction: row;
@@ -128,11 +133,30 @@ button:disabled {
 .clock-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
 }
 
 .clock {
   font-size: 1.5rem;
+}
+
+.events-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-scroll-container {
+  max-height: 50vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
 }
 
 .listElement {
@@ -145,12 +169,12 @@ button:disabled {
 }
 
 .listElementTime {
-  
+  width: 4rem;
+  flex-shrink: 0;
 }
 
 .listElementEvent {
-  position: absolute;
-  left: 30%;
+
 }
 
 * {

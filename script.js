@@ -108,7 +108,7 @@ function createListEl(eventTime, eventText) {
   listEl.appendChild(listElEvent);
 
   listElTime.classList.add("listElementTime");
-  listElTime.innerText = eventTime;
+  listElTime.innerText = 'T' + convertTimeSecondsToTimeMinutes(eventTime);
 
   listElEvent.classList.add("listElementEvent");
   listElEvent.innerText = eventText;
@@ -117,7 +117,7 @@ function createListEl(eventTime, eventText) {
 }
 
 function loadFlightEventsList() {
-  const eventsContainer = document.getElementById("events-container");
+  const eventsScrollContainer = document.getElementById("event-scroll-container");
   fetch('flightEvents.json')
     .then(response => response.json())
     .then(data => {
@@ -125,7 +125,7 @@ function loadFlightEventsList() {
       events.sort((a, b) => a.time - b.time);
       events.forEach(event => {
         const listEl = createListEl(event.time, event.event);
-        eventsContainer.appendChild(listEl)
+        eventsScrollContainer.appendChild(listEl)
       });
     })
     .catch(error => {
