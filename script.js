@@ -112,43 +112,79 @@ function toggleFullScreen() {
   }
 }
 
-const clockElement = document.getElementById('clock');
+function createListElement(eventTime, eventText) {
+  let listElement = document.createElement("div");
+  listElement.classList.add("listElement");
+  listElement.innerText = `Time: ${eventTime} Event: ${eventText}`;
 
-clockElement.addEventListener("click", () => {
-  clockUTC = !clockUTC;
-});
+  return listElement;
+}
 
-clockElement.addEventListener("webkitmouseforcewillbegin", (event) => {
-  event.preventDefault();
-  clockUTC = !clockUTC;
-});
+function loadFlightEventsList() {
+  const eventsContainer = document.getElementById("events-container");
+  fetch('flightEvents.json')
+    .then(response => response.json())
+    .then(data => {
+      const events = data.events;
+      events.sort((a, b) => b.time - a.time);
 
+      console.log(events);
+
+      events.forEach(event => {
+        console.log(`Time: ${event.time}, Event: ${event.event}`);
+
+        const listElement = createListElement(event.time, event.event);
+
+        eventsContainer.appendChild(listElement)
+      });
+    })
+    .catch(error => {
+      console.error('Error loading JSON:', error);
+    });
+}
+
+function addEventListeners() {
+  // const clockElement = document.getElementById('clock');
+
+  // clockElement.addEventListener("click", () => {
+  //   clockUTC = !clockUTC;
+  // });
+  //
+  // clockElement.addEventListener("webkitmouseforcewillbegin", (event) => {
+  //   event.preventDefault();
+  //   clockUTC = !clockUTC;
+  // });
+
+  document.addEventListener('wheel', function (event) {
+    if (event.ctrlKey) {
+      event.preventDefault();
+    }
+  }, {passive: false});
+
+  document.addEventListener('gesturestart', function (event) {
+    event.preventDefault();
+  }, {passive: false});
+
+  document.addEventListener('gesturechange', function (event) {
+    event.preventDefault();
+  }, {passive: false});
+
+  document.addEventListener('gestureend', function (event) {
+    event.preventDefault();
+  }, {passive: false});
+
+  let lastTouchEnd = 0;
+
+  document.addEventListener("touchend", function (event) {
+    let now = new Date().getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, {passive: false});
+}
+
+addEventListeners();
 setInterval(updateClock, 100);
+loadFlightEventsList();
 updateDisplay();
-
-document.addEventListener('wheel', function (event) {
-  if (event.ctrlKey) {
-    event.preventDefault();
-  }
-}, {passive: false});
-
-document.addEventListener('gesturestart', function (event) {
-  event.preventDefault();
-}, {passive: false});
-
-document.addEventListener('gesturechange', function (event) {
-  event.preventDefault();
-}, {passive: false});
-
-document.addEventListener('gestureend', function (event) {
-  event.preventDefault();
-}, {passive: false});
-
-let lastTouchEnd = 0;
-document.addEventListener("touchend", function (event) {
-  let now = new Date().getTime();
-  if (now - lastTouchEnd <= 300) {
-    event.preventDefault();
-  }
-  lastTouchEnd = now;
-}, {passive: false});

@@ -1,0 +1,12 @@
+{
+  "events": [
+    {
+      "time": 600,
+      "event": "Power ON"
+    },
+    {
+      "time": 0,
+      "event": "Liftoff"
+    }
+  ]
+}
