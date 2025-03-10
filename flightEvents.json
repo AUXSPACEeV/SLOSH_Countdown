@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "time": 600,
+      "time": -600,
       "event": "Power ON"
     },
     {

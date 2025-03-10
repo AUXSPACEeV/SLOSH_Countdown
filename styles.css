@@ -135,6 +135,24 @@ button:disabled {
   font-size: 1.5rem;
 }
 
+.listElement {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  width: 80%;
+  text-align: start;
+  border: 1px solid;
+}
+
+.listElementTime {
+  
+}
+
+.listElementEvent {
+  position: absolute;
+  left: 30%;
+}
+
 .hidden-container, .buttons-container, .clock {
   -webkit-user-select: none;
   user-select: none;

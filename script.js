@@ -1,8 +1,6 @@
 let time = 600;
 let interval;
 const countdownEl = document.getElementById("countdown");
-const eventsContainer = document.getElementById("events-container");
-const startPauseBtn = document.getElementById("startPauseBtn");
 const eventTimes = {600: "T-10 minutes: Systems Check", 0: "Liftoff!"};
 let displayedEvents = new Set();
 let liftoffReached = false;
@@ -82,12 +80,12 @@ function resetCountdown() {
   updateDisplay();
 }
 
-function createEventBox(eventTime, eventText) {
-  let eventBox = document.createElement("div");
-  eventBox.classList.add("event-box");
-  eventBox.innerHTML = `<span>${eventText}</span> <button onclick="this.parentElement.remove(); displayedEvents.delete(${eventTime})">✔</button>`;
-  eventsContainer.appendChild(eventBox);
-}
+// function createEventBox(eventTime, eventText) {
+//   let eventBox = document.createElement("div");
+//   eventBox.classList.add("event-box");
+//   eventBox.innerHTML = `<span>${eventText}</span> <button onclick="this.parentElement.remove(); displayedEvents.delete(${eventTime})">✔</button>`;
+//   eventsContainer.appendChild(eventBox);
+// }
 
 function toggleHiddenMenu() {
   const hiddenButtons = document.getElementById("hiddenButtons");
@@ -113,9 +111,18 @@ function toggleFullScreen() {
 }
 
 function createListElement(eventTime, eventText) {
-  let listElement = document.createElement("div");
+  const listElement = document.createElement("div");
+  const listElementTime = document.createElement("div");
+  const listElementEvent = document.createElement("div");
   listElement.classList.add("listElement");
-  listElement.innerText = `Time: ${eventTime} Event: ${eventText}`;
+  listElement.appendChild(listElementTime);
+  listElement.appendChild(listElementEvent);
+
+  listElementTime.classList.add("listElementTime");
+  listElementTime.innerText = eventTime;
+
+  listElementEvent.classList.add("listElementEvent");
+  listElementEvent.innerText = eventText;
 
   return listElement;
 }
@@ -126,15 +133,9 @@ function loadFlightEventsList() {
     .then(response => response.json())
     .then(data => {
       const events = data.events;
-      events.sort((a, b) => b.time - a.time);
-
-      console.log(events);
-
+      events.sort((a, b) => a.time - b.time);
       events.forEach(event => {
-        console.log(`Time: ${event.time}, Event: ${event.event}`);
-
         const listElement = createListElement(event.time, event.event);
-
         eventsContainer.appendChild(listElement)
       });
     })
