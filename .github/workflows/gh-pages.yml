@@ -35,8 +35,22 @@ jobs:
       - name: Create symbolic links in deployment directory
         if: env.BRANCH_NAME == 'main'
         run: |
+          link_recursive() {
+            local src=$1
+            local dest=$2
+
+            if [[ -d "$src" ]]; then
+              mkdir -p "$dest"
+              for item in "$src"/*; do
+                link_recursive "$item" "$dest/$(basename "$item")"
+              done
+            else
+              ln -f "$src" "$dest"
+            fi
+          }
+
           for file in ./gh-pages/main/*; do
-            ln -f "$file" "./gh-pages/$(basename "$file")"
+            link_recursive "$file" "./gh-pages/$(basename "$file")"
           done
 
       - name: Deploy deployment directory to GitHub Pages
