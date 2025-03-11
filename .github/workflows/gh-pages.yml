@@ -38,6 +38,8 @@ jobs:
           cd ./gh-pages
           git -C ./../updates branch -r | grep -v '\->' | sed 's|origin/||g' | sed 's|/|-|g' > ./../branch_list.txt
 
+          echo "main" >> ./../branch_list.txt
+
           for dir in ./*/; do
             dir=${dir%/}
             if [[ "$dir" == ".git" || -z "$dir" ]]; then
