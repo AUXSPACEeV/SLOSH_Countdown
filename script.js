@@ -111,9 +111,8 @@ function resetCountdown() {
   time = START_TIME;
   currentFlightEventNumber = 0;
   removeFlightEventsList();
-  loadFlightEventsList();
-  loadCurrentFlightEvent();
-  loadLastFlightEvent();
+  loadFlightEventsList(0);
+  loadNextFlightEvent();
 }
 
 function toggleHiddenMenu() {
@@ -156,9 +155,9 @@ function createListEl(eventTime, eventText) {
   return listEl;
 }
 
-function loadFlightEventsList() {
+function loadFlightEventsList(position) {
   const eventsScrollContainer = document.getElementById("event-scroll-container");
-  flightEvents.forEach(event => {
+  flightEvents.slice(position).forEach(event => {
     const listEl = createListEl(event.time, event.event);
     eventsScrollContainer.appendChild(listEl)
   });
@@ -177,8 +176,14 @@ function loadLastFlightEvent() {
     let lastEvent = flightEvents[currentFlightEventNumber - 1]
     lastEventEl.innerHTML = createListEl(lastEvent.time, lastEvent.event).innerHTML;
   } else {
-    lastEventEl.innerText = "fly safe o7"
+    lastEventEl.innerText = "Godspeed 🙏 🚀"
   }
+}
+
+function revertLastEvent() {
+  removeFlightEventsList();
+  loadFlightEventsList(--currentFlightEventNumber);
+  loadNextFlightEvent();
 }
 
 function createCurrentEvent(eventTime, event, confirmable) {
@@ -319,7 +324,7 @@ function loadFlightEventsJSON() {
       events.sort((a, b) => a.time - b.time);
 
       flightEvents = events;
-      loadFlightEventsList();
+      loadFlightEventsList(0);
       loadNextFlightEvent();
       setInterval(updateDisplay, 100);
     })
