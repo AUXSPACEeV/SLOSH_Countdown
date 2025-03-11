@@ -10,6 +10,8 @@ const nextEventEvent = new CustomEvent('next-event', {});
 
 let clockUTC = true;
 
+let lock = false;
+
 function updateDisplay() {
   setTimeout(() => {
     const countdownEl = document.getElementById("countdown");
@@ -41,8 +43,29 @@ function toggleClock() {
   clockUTC = !clockUTC;
 }
 
+function toggleLock(override = false) {
+  if (override) {
+    lock = override;
+    toggleLockIcon(override);
+  } else {
+    lock = !lock;
+    toggleLockIcon();
+  }
+}
+
+function toggleLockIcon(override = false) {
+  const iconStartPauseBtn = document.getElementById("lockBtnIcon");
+  if (iconStartPauseBtn.classList.contains("fa-lock-open") || override) {
+    iconStartPauseBtn.classList.remove("fa-lock-open");
+    iconStartPauseBtn.classList.add("fa-lock");
+  } else {
+    iconStartPauseBtn.classList.remove("fa-lock");
+    iconStartPauseBtn.classList.add("fa-lock-open");
+  }
+}
+
 function adjustTime(amount) {
-  if (time < 0 || !countdownInterval) {
+  if (!lock) {
     time = time + amount
   }
 }
@@ -64,7 +87,7 @@ function clearCountdownInterval() {
 }
 
 function toggleCountdown() {
-  if (time > 0) {
+  if (lock > 0) {
     return;
   }
 
@@ -74,6 +97,9 @@ function toggleCountdown() {
   } else {
     countdownInterval = setInterval(() => {
       time++;
+      if (time === 0) {
+        toggleLock(true);
+      }
     }, 1000);
     toggleIconStartPauseBtn()
   }
@@ -201,7 +227,6 @@ function updateCurrentEventCountdown() {
   }
 }
 
-
 function removeElementFromEventList() {
   const eventsScrollContainer = document.getElementById("event-scroll-container");
   let removedEl = eventsScrollContainer.firstElementChild
@@ -222,7 +247,6 @@ function loadNextFlightEvent() {
   loadLastFlightEvent();
   removeElementFromEventList();
 }
-
 
 function addEventListeners() {
   document.addEventListener('next-event', () => {
