@@ -36,7 +36,7 @@ jobs:
         if: env.BRANCH_NAME == 'main'
         run: |
           cd ./gh-pages
-          git -C ./../updates branch -r | grep -v '\->' | sed 's|origin/||g' | sed 's|/|-|g' > ./../branch_list.txt
+          git -C ./../updates branch -r | grep -v '\->' | sed 's|origin/||g' | sed 's|/|-|g' | sed 's/^[[:space:]]*//' > ./../branch_list.txt
 
           for dir in ./*/; do
             dir=${dir%/}
