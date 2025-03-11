@@ -31,6 +31,7 @@ body, .page-container {
   margin: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .fixed-section {
@@ -157,15 +158,17 @@ button:disabled {
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
+  overflow: hidden;
+  max-height: calc(100vh - 330px);
 }
 
 .event-scroll-container {
-  max-height: calc(100vh - 400px);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .listElement {
