@@ -45,6 +45,7 @@ jobs:
               continue
             fi
             if ! grep -q "^$basename_dir$" ./../branch_list.txt; then
+              echo "Removing directory not matching any branch: $basename_dir"
               rm -rf "$dir"
             fi
           done
