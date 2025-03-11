@@ -32,6 +32,22 @@ jobs:
         if: env.BRANCH_NAME == 'main'
         run: find ./gh-pages -type l -exec rm {} \;
 
+      - name: Remove folders in root not matching branch names
+        if: env.BRANCH_NAME == 'main'
+        run: |
+          cd ./gh-pages
+          git -C ./../updates branch -r | grep -v '\->' | sed 's|origin/||g' | sed 's|/|-|g' > ./../branch_list.txt
+
+          for dir in ./*/; do
+            dir=${dir%/}
+            if [[ "$dir" == ".git" || -z "$dir" ]]; then
+              continue
+            fi
+            if ! grep -q "^$dir$" ../branch_list.txt; then
+              rm -rf "$dir"
+            fi
+          done
+
       - name: Create symbolic links in deployment directory
         if: env.BRANCH_NAME == 'main'
         run: |
