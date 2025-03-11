@@ -28,11 +28,17 @@ function convertTimeSecondsToTimeMinutes(timeSeconds) {
 }
 
 function updateClock() {
-  const timeUTC = 'UTC ' + new Date().toISOString().slice(11, 19);
-  const timeLT = 'LT ' + new Date().toString().slice(16, 24);
+  let clockTime;
+  if (clockUTC) {
+    clockTime = 'UTC ' + new Date().toISOString().slice(11, 19);
+  } else {
+    clockTime = 'LT ' + new Date().toString().slice(16, 24);
+  }
+  document.getElementById('clock').textContent = clockTime;
+}
 
-  document.getElementById('clockUTC').textContent = timeUTC;
-  document.getElementById('clockLT').textContent = timeLT;
+function toggleClock() {
+  clockUTC = !clockUTC;
 }
 
 function adjustTime(amount) {
@@ -219,17 +225,6 @@ function loadNextFlightEvent() {
 
 
 function addEventListeners() {
-  // const clockElement = document.getElementById('clock');
-
-  // clockElement.addEventListener("click", () => {
-  //   clockUTC = !clockUTC;
-  // });
-  //
-  // clockElement.addEventListener("webkitmouseforcewillbegin", (event) => {
-  //   event.preventDefault();
-  //   clockUTC = !clockUTC;
-  // });
-
   document.addEventListener('next-event', () => {
     if (currentFlightEventNumber < flightEvents.length - 1) {
       currentFlightEventNumber++;
@@ -314,8 +309,8 @@ function registerServiceWorker() {
     window.addEventListener('load', () => {
       // noinspection JSUnusedLocalSymbols
       navigator.serviceWorker.register('/service-worker.js')
-          .then(reg => console.log('Service worker registered'))
-          .catch(err => console.log('Service worker not registered', err));
+        .then(reg => console.log('Service worker registered'))
+        .catch(err => console.log('Service worker not registered', err));
     });
   }
 }
