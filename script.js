@@ -337,7 +337,7 @@ function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       // noinspection JSUnusedLocalSymbols
-      navigator.serviceWorker.register("./app/service-worker.js")
+      navigator.serviceWorker.register("./web-app/service-worker.js")
         .then(reg => console.log("Service worker registered"))
         .catch(err => console.log("Service worker not registered", err));
     });
