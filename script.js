@@ -148,7 +148,7 @@ function createListEl(eventTime, eventText) {
   listEl.appendChild(listElEvent);
 
   listElTime.classList.add("listElementTime");
-  listElTime.innerText = 'T' + convertTimeSecondsToTimeMinutes(eventTime);
+  listElTime.innerText = "T" + convertTimeSecondsToTimeMinutes(eventTime);
 
   listElEvent.classList.add("listElementEvent");
   listElEvent.innerText = eventText;
@@ -192,20 +192,20 @@ function createCurrentEvent(eventTime, event, confirmable) {
   currentEventTextEl.innerText = event;
 
   if (currentEventCheckEl._clickHandler) {
-    currentEventCheckEl.removeEventListener('click', currentEventCheckEl._clickHandler);
+    currentEventCheckEl.removeEventListener("click", currentEventCheckEl._clickHandler);
     currentEventCheckEl._clickHandler = null;
   }
 
   if (confirmable) {
-    currentEventCheckEl.innerHTML = '<i class="fa-regular fa-square"></i>'
+    currentEventCheckEl.innerHTML = "<i class=\"fa-regular fa-square\"></i>"
 
     const handleEventClick = function () {
       document.dispatchEvent(nextEventEvent);
     };
     currentEventCheckEl._clickHandler = handleEventClick;
-    currentEventCheckEl.addEventListener('click', handleEventClick);
+    currentEventCheckEl.addEventListener("click", handleEventClick);
   } else {
-    currentEventCheckEl.innerHTML = ''
+    currentEventCheckEl.innerHTML = ""
   }
 }
 
@@ -214,7 +214,7 @@ function updateCurrentEventCountdown() {
   const currentEventDeltaTime = time - flightEvents[currentFlightEventNumber].time
 
   if (currentEventDeltaTime === 0) {
-    currentEventCountdownEl.innerText = 'GO!'
+    currentEventCountdownEl.innerText = "GO!"
   } else {
     currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
   }
@@ -249,26 +249,26 @@ function loadNextFlightEvent() {
 }
 
 function addEventListeners() {
-  document.addEventListener('next-event', () => {
+  document.addEventListener("next-event", () => {
     if (currentFlightEventNumber < flightEvents.length - 1) {
       currentFlightEventNumber++;
       loadNextFlightEvent();
     }
   });
 
-  document.addEventListener('wheel', function (event) {
+  document.addEventListener("wheel", function (event) {
     if (event.ctrlKey) {
       event.preventDefault();
     }
   }, {passive: false});
 
-  document.addEventListener('gesturestart', function (event) {
+  document.addEventListener("gesturestart", function (event) {
     event.preventDefault();
   }, {passive: false});
-  document.addEventListener('gesturechange', function (event) {
+  document.addEventListener("gesturechange", function (event) {
     event.preventDefault();
   }, {passive: false});
-  document.addEventListener('gestureend', function (event) {
+  document.addEventListener("gestureend", function (event) {
     event.preventDefault();
   }, {passive: false});
 
@@ -312,7 +312,7 @@ function addEventListeners() {
 }
 
 function loadFlightEventsJSON() {
-  fetch('flightEvents.json')
+  fetch("flightEvents.json")
     .then(response => response.json())
     .then(data => {
       const events = data.events;
@@ -324,17 +324,17 @@ function loadFlightEventsJSON() {
       setInterval(updateDisplay, 100);
     })
     .catch(error => {
-      console.error('Error loading JSON:', error);
+      console.error("Error loading JSON:", error);
     });
 }
 
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       // noinspection JSUnusedLocalSymbols
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(reg => console.log('Service worker registered'))
-        .catch(err => console.log('Service worker not registered', err));
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(reg => console.log("Service worker registered"))
+        .catch(err => console.log("Service worker not registered", err));
     });
   }
 }

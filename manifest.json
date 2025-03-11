@@ -2,7 +2,7 @@
   "name": "SLOSH Countdown",
   "short_name": "Countdown",
   "description": "Launch countdown for the REXUS experiment SLOSH",
-  "start_url": "/index.html",
+  "start_url": "./",
   "display": "standalone",
   "icons": [
     {
