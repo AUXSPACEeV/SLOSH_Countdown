@@ -91,7 +91,27 @@
     },
     {
       "time": 0,
-      "event": "Liftoff"
+      "event": "Event: LIFTOFF Signal"
+    },
+    {
+      "time": 68,
+      "event": "Event: YoYo-Despin"
+    },
+    {
+      "time": 70,
+      "event": "Event: SODS Signal"
+    },
+    {
+      "time": 71,
+      "event": "Event: Motor Separation"
+    },
+    {
+      "time": 137,
+      "event": "Event: Apogee"
+    },
+    {
+      "time": 600,
+      "event": "Event: Power OFF"
     }
   ]
 }
