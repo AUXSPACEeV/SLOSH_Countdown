@@ -1,6 +1,6 @@
-const START_TIME = -600
+const START_TIME = -615
 
-let time = -10;
+let time = -15;
 let countdownInterval;
 
 let flightEvents;
@@ -77,6 +77,11 @@ function resetCountdown() {
   clearCountdownInterval();
   toggleIconStartPauseBtn(true)
   time = START_TIME;
+  currentFlightEventNumber = 0;
+  removeFlightEventsList();
+  loadFlightEventsList();
+  loadCurrentFlightEvent();
+  loadLastFlightEvent();
 }
 
 function toggleHiddenMenu() {
@@ -135,10 +140,12 @@ function loadCurrentFlightEvent() {
 }
 
 function loadLastFlightEvent() {
+  const lastEventEl = document.getElementById("last-event");
   if (currentFlightEventNumber > 0) {
-    const lastEventEl = document.getElementById("last-event");
     let lastEvent = flightEvents[currentFlightEventNumber - 1]
     lastEventEl.innerHTML = createListEl(lastEvent.time, lastEvent.event).innerHTML;
+  } else {
+    lastEventEl.innerText = "fly safe o7"
   }
 }
 
@@ -181,8 +188,8 @@ function updateCurrentEventCountdown() {
   }
 
   if (!flightEvents[currentFlightEventNumber].confirmable
-      && currentEventDeltaTime > 0
-      && currentFlightEventNumber < flightEvents.length - 1
+    && currentEventDeltaTime > 0
+    && currentFlightEventNumber < flightEvents.length - 1
   ) {
     document.dispatchEvent(nextEventEvent);
   }
@@ -194,6 +201,13 @@ function removeElementFromEventList() {
   let removedEl = eventsScrollContainer.firstElementChild
   if (removedEl !== null) {
     removedEl.remove();
+  }
+}
+
+function removeFlightEventsList() {
+  const eventsScrollContainer = document.getElementById("event-scroll-container");
+  while (eventsScrollContainer.firstChild) {
+    eventsScrollContainer.removeChild(eventsScrollContainer.firstChild);
   }
 }
 
@@ -217,7 +231,6 @@ function addEventListeners() {
   // });
 
   document.addEventListener('next-event', () => {
-    console.log("Next event");
     if (currentFlightEventNumber < flightEvents.length - 1) {
       currentFlightEventNumber++;
       loadNextFlightEvent();
@@ -241,22 +254,22 @@ function addEventListeners() {
   }, {passive: false});
 
   let drags = new Set()
-  document.addEventListener("touchmove", function(event){
-    if(!event.isTrusted)return
-    Array.from(event.changedTouches).forEach(function(touch){
+  document.addEventListener("touchmove", function (event) {
+    if (!event.isTrusted) return
+    Array.from(event.changedTouches).forEach(function (touch) {
       drags.add(touch.identifier)
     })
   })
-  document.addEventListener("touchend", function(event){
-    if(!event.isTrusted)return
+  document.addEventListener("touchend", function (event) {
+    if (!event.isTrusted) return
     let isDrag = false
-    Array.from(event.changedTouches).forEach(function(touch){
-      if(drags.has(touch.identifier)){
+    Array.from(event.changedTouches).forEach(function (touch) {
+      if (drags.has(touch.identifier)) {
         isDrag = true
       }
       drags.delete(touch.identifier)
     })
-    if(!isDrag && document.activeElement === document.body){
+    if (!isDrag && document.activeElement === document.body) {
       event.preventDefault()
       event.stopPropagation()
       event.target.focus()
