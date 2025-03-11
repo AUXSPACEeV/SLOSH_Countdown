@@ -2,7 +2,7 @@
   "name": "SLOSH Countdown",
   "short_name": "SloshCD",
   "description": "Launch countdown for the REXUS experiment SLOSH",
-  "start_url": "./",
+  "start_url": "./../",
   "icons": [
     {
       "src": "./web-app-manifest-192x192.png",
