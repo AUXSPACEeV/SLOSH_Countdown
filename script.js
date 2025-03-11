@@ -312,7 +312,7 @@ function addEventListeners() {
 }
 
 function loadFlightEventsJSON() {
-  fetch("flightEvents.json")
+  fetch("./data/flightEvents.json")
     .then(response => response.json())
     .then(data => {
       const events = data.events;
@@ -332,7 +332,7 @@ function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       // noinspection JSUnusedLocalSymbols
-      navigator.serviceWorker.register("./service-worker.js")
+      navigator.serviceWorker.register("./app/service-worker.js")
         .then(reg => console.log("Service worker registered"))
         .catch(err => console.log("Service worker not registered", err));
     });
