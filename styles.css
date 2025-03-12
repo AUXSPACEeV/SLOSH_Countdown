@@ -212,13 +212,18 @@ button:disabled {
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 .clickable {
   cursor: pointer;
 }
 
-#main-page-header-text {
+.header-text {
   margin: 0 10px;
   height: 40px;
 }
