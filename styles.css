@@ -49,7 +49,6 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: 10px;
   width: 97%;
 }
@@ -228,8 +227,4 @@ button:disabled {
 .header-text {
   margin: 0 10px;
   height: 40px;
-}
-
-#countdown {
-  width: 9rem;
 }
