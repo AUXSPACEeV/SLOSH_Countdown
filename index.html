@@ -28,6 +28,7 @@
           <button id="toggleButton" onclick="toggleHiddenMenu()">
             <i class="fa-solid fa-ellipsis"></i>
           </button>
+          <h1 id="main-page-header-text">SLOSH Countdown</h1>
           <div id="hiddenButtons" class="hidden hidden-buttons">
             <button onclick="toggleFullScreen()">
               <i class="fas fa-expand"></i>
@@ -52,8 +53,6 @@
             </button>
           </div>
         </div>
-
-        <h1>SLOSH Countdown</h1>
 
         <div class="clock-container">
           <div class="clock" id="clock"></div>
@@ -81,17 +80,20 @@
         <div class="event-box" id="event-box">
           <div class="current-event" id="current-event-countdown"></div>
           <div class="current-event" id="current-event-text"></div>
-          <div class="current-event" id="current-event-checkbox"></div>
+          <div class="current-event clickable" id="current-event-checkbox"></div>
         </div>
         <div class="event-scroll-container" id="event-scroll-container"></div>
       </div>
     </div>
 
     <div class="page-container hidden" id="input-page">
+      <h2>Settings</h2>
       <form id="myForm">
-        <label for="userInput">Enter Text:</label>
-        <input type="text" id="userInput" name="userInput">
-        <button type="submit">Save</button>
+        <label for="launchTimeInput">Launch Time:</label>
+        <input type="time" id="launchTimeInput" name="launchTimeInput">
+        <button type="button">
+          <i class="fa-solid fa-circle-check" onclick="saveSettings()"></i>
+        </button>
       </form>
     </div>
 
@@ -100,7 +102,7 @@
         <button id="backBtn" onclick="backToMainPage()">
           <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <div class="header-text">List View</div>
+        <h2>List View</h2>
       </div>
       <div class="list-view event-scroll-container" id="list-view"></div>
     </div>

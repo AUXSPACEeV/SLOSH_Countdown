@@ -199,10 +199,6 @@ button:disabled {
   flex-direction: row;
 }
 
-.header-text {
-  /*TODO fix :(*/
-}
-
 .clickable {
   cursor: pointer;
 }

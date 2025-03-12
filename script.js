@@ -117,9 +117,11 @@ function resetCountdown() {
 
 function toggleHiddenMenu() {
   const hiddenButtons = document.getElementById("hiddenButtons");
+  const mainPageHeaderTextEl = document.getElementById("main-page-header-text");
   const toggleButtonIcon = document.querySelector("#toggleButton i");
 
   hiddenButtons.classList.toggle("hidden");
+  mainPageHeaderTextEl.classList.toggle("hidden");
 
   if (hiddenButtons.classList.contains("hidden")) {
     toggleButtonIcon.classList.remove("fa-chevron-left");
@@ -205,10 +207,13 @@ function createCurrentEvent(eventTime, event, task) {
   }
 
   if (task) {
-    currentEventCheckEl.innerHTML = "<i class=\"fa-solid fa-circle-check clickable\" style=\"color: #63E6BE;\"></i>"
+    currentEventCheckEl.innerHTML = "<i class=\"fa-regular fa-circle\"></i>"
 
     const handleEventClick = function () {
-      document.dispatchEvent(nextEventEvent);
+      currentEventCheckEl.innerHTML = "<i class=\"fa-solid fa-circle-check\" style=\"color: #63E6BE;\"></i>"
+      setTimeout(() => {
+        document.dispatchEvent(nextEventEvent);
+      }, 150);
     };
     currentEventCheckEl._clickHandler = handleEventClick;
     currentEventCheckEl.addEventListener("click", handleEventClick);
