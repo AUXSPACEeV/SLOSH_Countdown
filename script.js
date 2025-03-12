@@ -166,7 +166,7 @@ function loadFlightEventsList(position) {
 function loadCurrentFlightEvent() {
   if (currentFlightEventNumber < flightEvents.length) {
     const currentFlightEvent = flightEvents[currentFlightEventNumber]
-    createCurrentEvent(currentFlightEvent.time, currentFlightEvent.event, currentFlightEvent.confirmable);
+    createCurrentEvent(currentFlightEvent.time, currentFlightEvent.event, currentFlightEvent.task);
   }
 }
 
@@ -186,7 +186,7 @@ function revertLastEvent() {
   loadNextFlightEvent();
 }
 
-function createCurrentEvent(eventTime, event, confirmable) {
+function createCurrentEvent(eventTime, event, task) {
   const currentEventCountdownEl = document.getElementById("current-event-countdown");
   const currentEventTextEl = document.getElementById("current-event-text");
   const currentEventCheckEl = document.getElementById("current-event-checkbox");
@@ -201,7 +201,7 @@ function createCurrentEvent(eventTime, event, confirmable) {
     currentEventCheckEl._clickHandler = null;
   }
 
-  if (confirmable) {
+  if (task) {
     currentEventCheckEl.innerHTML = "<i class=\"fa-regular fa-square\"></i>"
 
     const handleEventClick = function () {
@@ -224,7 +224,7 @@ function updateCurrentEventCountdown() {
     currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
   }
 
-  if (!flightEvents[currentFlightEventNumber].confirmable
+  if (!flightEvents[currentFlightEventNumber].task
     && currentEventDeltaTime > 0
     && currentFlightEventNumber < flightEvents.length - 1
   ) {

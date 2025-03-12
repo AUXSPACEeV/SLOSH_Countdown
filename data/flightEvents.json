@@ -5,76 +5,86 @@
       "event": "Event: Power ON"
     },
     {
-      "time": -570,
-      "event": "Confirm: Power ON",
-      "confirmable": true
-    },
-    {
-      "time": -565,
-      "event": "Set: Lights 0%"
-    },
-    {
       "time": -560,
-      "event": "Confirm: Lights 0%",
-      "confirmable": true
+      "event": "Confirm: Power ON",
+      "task": true
     },
     {
       "time": -555,
-      "event": "Set: Lights 75%"
+      "event": "Set: Lights 0%",
+      "task": true
     },
     {
       "time": -550,
-      "event": "Confirm: Lights 75%",
-      "confirmable": true
+      "event": "Confirm: Lights 0%",
+      "task": true
+    },
+    {
+      "time": -545,
+      "event": "Set: Lights 75%",
+      "task": true
     },
     {
       "time": -540,
-      "event": "Set: Recording ON"
+      "event": "Confirm: Lights 75%",
+      "task": true
     },
     {
       "time": -535,
-      "event": "Confirm: Recording ON",
-      "confirmable": true
+      "event": "Set: Recording ON",
+      "task": true
     },
     {
-      "time": -370,
+      "time": -530,
+      "event": "Confirm: Recording ON",
+      "task": true
+    },
+    {
+      "time": -385,
       "event": "Reminder: Look for write rate drops on both disks"
     },
     {
-      "time": -360,
+      "time": -370,
+      "event": "!Reminder!: Extra time to ensure stable write rates"
+    },
+    {
+      "time": -365,
       "event": "Confirm: Write rates on both disks are stable and nominal",
-      "confirmable": true
+      "task": true
+    },
+    {
+      "time": -360,
+      "event": "Set: Recording OFF",
+      "task": true
     },
     {
       "time": -355,
-      "event": "Set: Recording OFF"
+      "event": "Confirm: Recording OFF",
+      "task": true
     },
     {
       "time": -350,
-      "event": "Confirm: Recording OFF",
-      "confirmable": true
+      "event": "Set: Delete disk storage",
+      "task": true
     },
     {
-      "time": -345,
-      "event": "Set: Delete disk storage"
-    },
-    {
-      "time": -315,
+      "time": -310,
       "event": "Confirm: Disk storage deleted",
-      "confirmable": true
+      "task": true
     },
     {
       "time": -300,
       "event": "Event: Service module switching to internal power"
     },
     {
-      "time": -270,
-      "event": "Set: Recording ON"
+      "time": -285,
+      "event": "Set: Recording ON",
+      "task": true
     },
     {
-      "time": -265,
+      "time": -280,
       "event": "Confirm: Recording ON",
-      "confirmable": true
+      "task": true
     },
     {
       "time": -130,
@@ -87,7 +97,7 @@
     {
       "time": -115,
       "event": "Confirm: SOE Signal",
-      "confirmable": true
+      "task": true
     },
     {
       "time": 0,
