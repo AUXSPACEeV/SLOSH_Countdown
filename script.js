@@ -36,7 +36,7 @@ function updateCountdown() {
 function convertTimeSecondsToTimeMinutes(timeSeconds) {
   const sign = timeSeconds < 0 ? '-' : '+'
   const minutes = (Math.trunc(Math.abs(timeSeconds) / 60)).toString().padStart(2, '0');
-  const seconds = (Math.abs(timeSeconds) % 60).toString().padStart(2, "0");
+  const seconds = (Math.trunc(Math.abs(timeSeconds) % 60).toString()).padStart(2, "0");
 
   return sign + minutes + ':' + seconds;
 }
