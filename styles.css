@@ -193,3 +193,12 @@ button:disabled {
 
 .listElementEvent {
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-text {
+  /*TODO fix :(*/
+}

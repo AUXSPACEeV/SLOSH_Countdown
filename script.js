@@ -155,8 +155,8 @@ function createListEl(eventTime, eventText) {
   return listEl;
 }
 
-function loadFlightEventsList(position) {
-  const eventsScrollContainer = document.getElementById("event-scroll-container");
+function loadFlightEventsList(position, parentElId = "event-scroll-container") {
+  const eventsScrollContainer = document.getElementById(parentElId);
   flightEvents.slice(position).forEach(event => {
     const listEl = createListEl(event.time, event.event);
     eventsScrollContainer.appendChild(listEl)
@@ -181,9 +181,12 @@ function loadLastFlightEvent() {
 }
 
 function revertLastEvent() {
-  removeFlightEventsList();
-  loadFlightEventsList(--currentFlightEventNumber);
-  loadNextFlightEvent();
+  if (currentFlightEventNumber > 0) {
+    currentFlightEventNumber--;
+    removeFlightEventsList();
+    loadFlightEventsList(currentFlightEventNumber);
+    loadNextFlightEvent();
+  }
 }
 
 function createCurrentEvent(eventTime, event, task) {
@@ -251,6 +254,36 @@ function loadNextFlightEvent() {
   loadCurrentFlightEvent();
   loadLastFlightEvent();
   removeElementFromEventList();
+}
+
+function showInputDataView() {
+  toggleMainPage();
+  toggleInputPage();
+}
+
+function showListView() {
+  toggleMainPage();
+  toggleListViewPage();
+}
+
+function toggleMainPage() {
+  const mainPageEl = document.getElementById("main-page");
+  mainPageEl.classList.toggle("hidden");
+}
+
+function toggleInputPage() {
+  const inputPageEl = document.getElementById("input-page");
+  inputPageEl.classList.toggle("hidden");
+}
+
+function toggleListViewPage() {
+  const listViewPageEl = document.getElementById("list-view-page");
+  listViewPageEl.classList.toggle("hidden");
+}
+
+function backToMainPage() {
+  toggleListViewPage();
+  toggleMainPage();
 }
 
 function addEventListeners() {
@@ -325,6 +358,7 @@ function loadFlightEventsJSON() {
 
       flightEvents = events;
       loadFlightEventsList(0);
+      loadFlightEventsList(0, "list-view")
       loadNextFlightEvent();
       setInterval(updateDisplay, 100);
     })

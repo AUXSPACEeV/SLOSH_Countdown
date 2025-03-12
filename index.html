@@ -22,8 +22,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./web-app/apple-touch-icon.png" />
   </head>
   <body>
-    <div class="page-container">
-
+    <div class="page-container" id="main-page">
       <div class="fixed-section">
         <div class="hidden-container">
           <button id="toggleButton" onclick="toggleHiddenMenu()">
@@ -44,6 +43,12 @@
             </button>
             <button onclick="revertLastEvent()">
               <i class="fa-solid fa-backward"></i>
+            </button>
+            <button onclick="showInputDataView()">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button onclick="showListView()">
+              <i class="fa-solid fa-list-check"></i>
             </button>
           </div>
         </div>
@@ -80,6 +85,24 @@
         </div>
         <div class="event-scroll-container" id="event-scroll-container"></div>
       </div>
+    </div>
+
+    <div class="page-container hidden" id="input-page">
+      <form id="myForm">
+        <label for="userInput">Enter Text:</label>
+        <input type="text" id="userInput" name="userInput">
+        <button type="submit">Save</button>
+      </form>
+    </div>
+
+    <div class="page-container hidden" id="list-view-page">
+      <div class="header">
+        <button id="backBtn" onclick="backToMainPage()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="header-text">List View</div>
+      </div>
+      <div class="list-view event-scroll-container" id="list-view"></div>
     </div>
 
     <script src="./script.js"></script>
