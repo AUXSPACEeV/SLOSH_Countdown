@@ -1,4 +1,4 @@
-const LO_OFFSET = 615;
+const LO_OFFSET = 15;
 
 let launchTime = null;
 resetLaunchTime();
@@ -38,8 +38,14 @@ function updateCountdown() {
 
 function convertTimeSecondsToTimeMinutes(timeSeconds) {
   const sign = timeSeconds < 0 ? '-' : '+'
-  const minutes = (Math.trunc(Math.abs(timeSeconds) / 60)).toString().padStart(2, '0');
-  const seconds = (Math.round(Math.abs(timeSeconds) % 60).toString()).padStart(2, "0");
+  const timeMinutes = Math.floor(timeSeconds / 60);
+  const minutes = (Math.trunc(Math.abs(timeMinutes) % 60)).toString().padStart(2, '0');
+  const seconds = (Math.round(Math.abs(timeSeconds) % 60).toString()).padStart(2, '0');
+  
+  if (timeMinutes >= 60) {
+    const hours = (Math.trunc(Math.abs(timeMinutes) / 60)).toString().padStart(2, '0');
+    return sign + hours + ':' + minutes + ':' + seconds;
+  }
 
   return sign + minutes + ':' + seconds;
 }
@@ -52,7 +58,9 @@ function updateClock() {
     clockTime = 'LT ' + new Date().toString().slice(16, 24);
   }
   document.getElementById('clock').textContent = clockTime;
-  document.getElementById('lift-off-time').textContent = clockTime;
+  if (launchTime) {
+    document.getElementById('lift-off-time').textContent = 'LO ' + launchTime.toString().slice(16, 24);
+  }
 }
 
 function toggleClock() {
@@ -303,7 +311,7 @@ function loadNextFlightEvent() {
 
 function showInputDataView() {
   toggleMainPage();
-  toggleInputPage();
+  toggleSettingsPage();
 }
 
 function showListView() {
@@ -316,7 +324,7 @@ function toggleMainPage() {
   mainPageEl.classList.toggle("hidden");
 }
 
-function toggleInputPage() {
+function toggleSettingsPage() {
   const inputPageEl = document.getElementById("input-page");
   inputPageEl.classList.toggle("hidden");
 }
@@ -339,6 +347,19 @@ function confirmEventFlightEventPage() {
 function unconfirmEventFlightEventPage() {
   const listViewEl = document.getElementById("list-view");
   listViewEl.children[currentFlightEventNumber - 1].classList.remove("confirmed");
+}
+
+function saveSettings() {
+  const launchTimeInputEl = document.getElementById("launch-time-input");
+  const launchTimeString = launchTimeInputEl.value;
+  const [hours, minutes] = launchTimeString.split(':').map(Number);
+  const newLaunchDate = new Date();
+  newLaunchDate.setHours(hours, minutes, 0, 0);
+
+  launchTime = newLaunchDate;
+
+  toggleSettingsPage();
+  toggleMainPage();
 }
 
 function addEventListeners() {
