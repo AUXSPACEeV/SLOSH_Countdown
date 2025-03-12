@@ -23,9 +23,9 @@ function initializeLaunchTime() {
   if (storedLaunchTime != null) {
     return new Date(Number(storedLaunchTime))
   } else {
-    let offsetDate = new Date(new Date().getTime() + (LO_OFFSET * 1000));
-    localStorage.setItem(STORAGE_KEY, offsetDate.getTime().toString());
-    return offsetDate;
+    let newLaunchDate = new Date(new Date().getTime() + (LO_OFFSET * 1000));
+    localStorage.setItem(STORAGE_KEY, newLaunchDate.getTime().toString());
+    return newLaunchDate;
   }
 }
 
@@ -105,7 +105,9 @@ function adjustTimeButtonClicked(amount) {
 }
 
 function adjustTime(amount) {
-  launchTime = new Date(launchTime.getTime() - (amount * 1000));
+  let newLaunchDate = new Date(launchTime.getTime() - (amount * 1000));
+  localStorage.setItem(STORAGE_KEY, newLaunchDate.getTime().toString());
+  launchTime = initializeLaunchTime();
 }
 
 function toggleIconStartPauseBtn(clear = false) {
@@ -156,7 +158,9 @@ function clearCheckLiftoffInterval() {
 }
 
 function moveLaunchTime() {
-  launchTime = new Date(launchTime.getTime() + (new Date() - launchTimeMovedLast));
+  let newLaunchDate = new Date(launchTime.getTime() + (new Date() - launchTimeMovedLast));
+  localStorage.setItem(STORAGE_KEY, newLaunchDate.getTime().toString());
+  launchTime = initializeLaunchTime();
 }
 
 function resetCountdown() {
@@ -364,10 +368,10 @@ function saveSettings() {
   const launchTimeInputEl = document.getElementById("launch-time-input");
   const launchTimeString = launchTimeInputEl.value;
   const [hours, minutes] = launchTimeString.split(':').map(Number);
-  const newLaunchDate = new Date();
-  newLaunchDate.setHours(hours, minutes, 0, 0);
 
-  launchTime = newLaunchDate;
+  const newLaunchDate = new Date().setHours(hours, minutes, 0, 0);
+  localStorage.setItem(STORAGE_KEY, newLaunchDate.getTime().toString());
+  launchTime = initializeLaunchTime();
 
   toggleSettingsPage();
   toggleMainPage();
