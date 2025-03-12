@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap");
+
 
 * {
   -moz-user-select: none;
@@ -14,7 +15,7 @@ html body {
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #f8f9fa;
   text-align: center;
   color: #1f487e;
@@ -120,13 +121,20 @@ button:disabled {
   align-items: center;
 }
 
+.header-menu-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
 .hidden-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  width: 100%;
   padding: 10px;
 }
 
