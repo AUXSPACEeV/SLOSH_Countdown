@@ -1,8 +1,7 @@
-const LO_OFFSET = 15;
+const LO_OFFSET = 615;
+const STORAGE_KEY = "launchTime"
 
-let launchTime = null;
-resetLaunchTime();
-
+let launchTime = initializeLaunchTime();
 launchTimeMovedLast = new Date();
 moveLaunchTimeInterval = setInterval(() => {
   moveLaunchTime();
@@ -18,8 +17,17 @@ const nextEventEvent = new CustomEvent('next-event', {});
 let clockUTC = false;
 let locked = false;
 
-function resetLaunchTime() {
-  launchTime = new Date(new Date().getTime() + (LO_OFFSET * 1000));
+function initializeLaunchTime() {
+  let storedLaunchTime = localStorage.getItem(STORAGE_KEY);
+
+  if (storedLaunchTime != null) {
+    return new Date(Number(storedLaunchTime))
+  }
+  else {
+    let offsetDate = new Date(new Date().getTime() + (LO_OFFSET * 1000));
+    localStorage.setItem(STORAGE_KEY, offsetDate.getTime().toString());
+    return offsetDate;
+  }
 }
 
 function updateDisplay() {
@@ -41,7 +49,7 @@ function convertTimeSecondsToTimeMinutes(timeSeconds) {
   const timeMinutes = Math.floor(timeSeconds / 60);
   const minutes = (Math.trunc(Math.abs(timeMinutes) % 60)).toString().padStart(2, '0');
   const seconds = (Math.round(Math.abs(timeSeconds) % 60).toString()).padStart(2, '0');
-  
+
   if (timeMinutes >= 60) {
     const hours = (Math.trunc(Math.abs(timeMinutes) / 60)).toString().padStart(2, '0');
     return sign + hours + ':' + minutes + ':' + seconds;
@@ -95,7 +103,7 @@ function adjustTimeButtonClicked(amount) {
 }
 
 function adjustTime(amount) {
-  launchTime = new Date(launchTime.getTime() + (amount * 1000));
+  launchTime = new Date(launchTime.getTime() - (amount * 1000));
 }
 
 function toggleIconStartPauseBtn(clear = false) {
@@ -151,8 +159,9 @@ function moveLaunchTime() {
 
 function resetCountdown() {
   if (!locked) {
-    toggleIconStartPauseBtn(true)
-    resetLaunchTime();
+    toggleCountdown();
+    localStorage.removeItem(STORAGE_KEY);
+    launchTime = initializeLaunchTime()
     currentFlightEventNumber = 0;
     removeFlightEventsList();
     loadFlightEventsList(0);
