@@ -1,16 +1,23 @@
-const START_TIME = -615
+const LO_OFFSET = 615;
 
-let time = -15;
-let countdownInterval;
+let launchTime = null;
+resetLaunchTime();
+
+let moveLaunchTimeInterval = null;
+let checkLiftoffInterval = null;
+let launchTimeMovedLast = null;
 
 let flightEvents;
 let currentFlightEventNumber = 0;
 
 const nextEventEvent = new CustomEvent('next-event', {});
 
-let clockUTC = true;
+let clockUTC = false;
+let locked = false;
 
-let lock = false;
+function resetLaunchTime() {
+  launchTime = new Date(new Date() + (LO_OFFSET * 1000));
+}
 
 function updateDisplay() {
   setTimeout(() => {
@@ -22,7 +29,8 @@ function updateDisplay() {
 
 function updateCountdown() {
   const countdownEl = document.getElementById("countdown");
-  countdownEl.textContent = time === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(time);
+  const launchTimeDeltaSeconds = (new Date() - launchTime) / 1000;
+  countdownEl.textContent = launchTimeDeltaSeconds === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(launchTimeDeltaSeconds);
 }
 
 function convertTimeSecondsToTimeMinutes(timeSeconds) {
@@ -50,10 +58,10 @@ function toggleClock() {
 
 function toggleLock(override = false) {
   if (override) {
-    lock = override;
+    locked = override;
     toggleLockIcon(override);
   } else {
-    lock = !lock;
+    locked = !locked;
     toggleLockIcon();
   }
 }
@@ -69,10 +77,14 @@ function toggleLockIcon(override = false) {
   }
 }
 
-function adjustTime(amount) {
-  if (!lock) {
-    time = time + amount
+function adjustTimeButtonClicked(amount) {
+  if (!locked) {
+    adjustTime(amount);
   }
+}
+
+function adjustTime(amount) {
+  launchTime = new Date(launchTime.getTime() + (amount * 1000));
 }
 
 function toggleIconStartPauseBtn(clear = false) {
@@ -86,35 +98,50 @@ function toggleIconStartPauseBtn(clear = false) {
   }
 }
 
-function clearCountdownInterval() {
-  clearInterval(countdownInterval);
-  countdownInterval = null;
-}
-
 function toggleCountdown() {
-  if (lock > 0) {
+  if (locked) {
     return;
   }
 
-  if (countdownInterval) {
-    clearCountdownInterval();
-    toggleIconStartPauseBtn();
-  } else {
-    countdownInterval = setInterval(() => {
-      time++;
-      if (time === 0) {
+  if (moveLaunchTimeInterval) {
+    clearMoveLaunchTimeInterval();
+    checkLiftoffInterval = setInterval(() => {
+      let now = new Date();
+      if ((now >= launchTime.getTime() - 100) && (now < launchTime.getTime() + 100)) {
         toggleLock(true);
       }
-    }, 1000);
+    }, 100)
+    toggleIconStartPauseBtn();
+  } else {
+    clearCheckLiftoffInterval();
+    launchTimeMovedLast = new Date();
+    moveLaunchTimeInterval = setInterval(() => {
+      moveLaunchTime();
+      launchTimeMovedLast = new Date();
+    }, 100)
     toggleIconStartPauseBtn()
   }
 }
 
+function clearMoveLaunchTimeInterval() {
+  clearInterval(moveLaunchTimeInterval);
+  moveLaunchTimeInterval = null;
+  moveLaunchTime();
+}
+
+function clearCheckLiftoffInterval() {
+  clearInterval(checkLiftoffInterval);
+  checkLiftoffInterval = null;
+}
+
+function moveLaunchTime() {
+  launchTime = launchTime + (new Date() - launchTimeMovedLast);
+}
+
 function resetCountdown() {
-  if (!lock) {
-    clearCountdownInterval();
+  if (!locked) {
     toggleIconStartPauseBtn(true)
-    time = START_TIME;
+    resetLaunchTime();
     currentFlightEventNumber = 0;
     removeFlightEventsList();
     loadFlightEventsList(0);
@@ -190,7 +217,7 @@ function loadLastFlightEvent() {
 }
 
 function revertLastEvent() {
-  if (currentFlightEventNumber > 0 && !lock) {
+  if (currentFlightEventNumber > 0 && !locked) {
     do {
       unconfirmEventFlightEventPage();
       currentFlightEventNumber--;
@@ -206,7 +233,7 @@ function createCurrentEvent(eventTime, event, task) {
   const currentEventTextEl = document.getElementById("current-event-text");
   const currentEventCheckEl = document.getElementById("current-event-checkbox");
 
-  const currentEventDeltaTime = time - eventTime
+  const currentEventDeltaTime = (new Date() - launchTime) - eventTime
 
   currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
   currentEventTextEl.innerText = event;
@@ -234,7 +261,7 @@ function createCurrentEvent(eventTime, event, task) {
 
 function updateCurrentEventCountdown() {
   const currentEventCountdownEl = document.getElementById("current-event-countdown");
-  const currentEventDeltaTime = time - flightEvents[currentFlightEventNumber].time
+  const currentEventDeltaTime = (new Date() - launchTime) - flightEvents[currentFlightEventNumber].time
 
   if (currentEventDeltaTime === 0) {
     currentEventCountdownEl.innerText = "GO!"
