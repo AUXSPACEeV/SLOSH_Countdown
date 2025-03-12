@@ -22,8 +22,7 @@ function initializeLaunchTime() {
 
   if (storedLaunchTime != null) {
     return new Date(Number(storedLaunchTime))
-  }
-  else {
+  } else {
     let offsetDate = new Date(new Date().getTime() + (LO_OFFSET * 1000));
     localStorage.setItem(STORAGE_KEY, offsetDate.getTime().toString());
     return offsetDate;
@@ -40,17 +39,20 @@ function updateDisplay() {
 
 function updateCountdown() {
   const countdownEl = document.getElementById("countdown");
-  const launchTimeDeltaSeconds = (new Date() - launchTime) / 1000;
+  const launchTimeDeltaSeconds = Math.round((new Date() - launchTime) / 1000);
   countdownEl.textContent = launchTimeDeltaSeconds === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(launchTimeDeltaSeconds);
 }
 
 function convertTimeSecondsToTimeMinutes(timeSeconds) {
+
+  timeSeconds = Math.round(timeSeconds);
+
   const sign = timeSeconds < 0 ? '-' : '+'
-  const timeMinutes = Math.floor(timeSeconds / 60);
+  const timeMinutes = Math.trunc(timeSeconds / 60);
   const minutes = (Math.trunc(Math.abs(timeMinutes) % 60)).toString().padStart(2, '0');
   const seconds = (Math.round(Math.abs(timeSeconds) % 60).toString()).padStart(2, '0');
 
-  if (timeMinutes >= 60) {
+  if (Math.abs(timeMinutes) >= 60) {
     const hours = (Math.trunc(Math.abs(timeMinutes) / 60)).toString().padStart(2, '0');
     return sign + hours + ':' + minutes + ':' + seconds;
   }
