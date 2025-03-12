@@ -289,7 +289,7 @@ function createCurrentEvent(eventTime, event, task) {
 
 function updateCurrentEventCountdown() {
   const currentEventCountdownEl = document.getElementById("current-event-countdown");
-  const currentEventDeltaTime = ((new Date() - launchTime) / 1000) - flightEvents[currentFlightEventNumber].time
+  const currentEventDeltaTime = Math.round(((new Date() - launchTime) / 1000) - flightEvents[currentFlightEventNumber].time)
 
   if (currentEventDeltaTime === 0) {
     currentEventCountdownEl.innerText = "GO!"
