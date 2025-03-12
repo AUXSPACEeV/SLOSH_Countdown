@@ -233,7 +233,7 @@ function createCurrentEvent(eventTime, event, task) {
   const currentEventTextEl = document.getElementById("current-event-text");
   const currentEventCheckEl = document.getElementById("current-event-checkbox");
 
-  const currentEventDeltaTime = (new Date() - launchTime) - eventTime
+  const currentEventDeltaTime = ((new Date() - launchTime) / 1000) - eventTime
 
   currentEventCountdownEl.innerText = convertTimeSecondsToTimeMinutes(currentEventDeltaTime);
   currentEventTextEl.innerText = event;
@@ -261,7 +261,7 @@ function createCurrentEvent(eventTime, event, task) {
 
 function updateCurrentEventCountdown() {
   const currentEventCountdownEl = document.getElementById("current-event-countdown");
-  const currentEventDeltaTime = (new Date() - launchTime) - flightEvents[currentFlightEventNumber].time
+  const currentEventDeltaTime = ((new Date() - launchTime) / 1000) - flightEvents[currentFlightEventNumber].time
 
   if (currentEventDeltaTime === 0) {
     currentEventCountdownEl.innerText = "GO!"
