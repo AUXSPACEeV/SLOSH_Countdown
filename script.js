@@ -14,11 +14,15 @@ let lock = false;
 
 function updateDisplay() {
   setTimeout(() => {
-    const countdownEl = document.getElementById("countdown");
-    countdownEl.textContent = time === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(time);
+    updateCountdown();
     updateClock();
     updateCurrentEventCountdown();
   }, 0);
+}
+
+function updateCountdown() {
+  const countdownEl = document.getElementById("countdown");
+  countdownEl.textContent = time === 0 ? 'LIFTOFF' : 'T' + convertTimeSecondsToTimeMinutes(time);
 }
 
 function convertTimeSecondsToTimeMinutes(timeSeconds) {
@@ -37,6 +41,7 @@ function updateClock() {
     clockTime = 'LT ' + new Date().toString().slice(16, 24);
   }
   document.getElementById('clock').textContent = clockTime;
+  document.getElementById('lift-off-time').textContent = clockTime;
 }
 
 function toggleClock() {
