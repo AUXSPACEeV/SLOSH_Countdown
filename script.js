@@ -371,7 +371,8 @@ function saveSettings() {
   const launchTimeString = launchTimeInputEl.value;
   const [hours, minutes] = launchTimeString.split(':').map(Number);
 
-  const newLaunchDate = new Date().setHours(hours, minutes, 0, 0);
+  const newLaunchDate = new Date();
+  newLaunchDate.setHours(hours, minutes, 0, 0);
   localStorage.setItem(STORAGE_KEY, newLaunchDate.getTime().toString());
   launchTime = initializeLaunchTime();
 
