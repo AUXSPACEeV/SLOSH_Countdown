@@ -16,7 +16,7 @@ let clockUTC = false;
 let locked = false;
 
 function resetLaunchTime() {
-  launchTime = new Date(new Date() + (LO_OFFSET * 1000));
+  launchTime = new Date(new Date().getTime() + (LO_OFFSET * 1000));
 }
 
 function updateDisplay() {
