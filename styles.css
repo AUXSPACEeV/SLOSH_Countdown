@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap");
 
-
 * {
   -moz-user-select: none;
   -ms-user-select: none;
@@ -52,6 +51,7 @@ h1 {
   justify-content: center;
   width: 100%;
   padding: 10px;
+  width: 97%;
 }
 
 #countdown {
@@ -74,6 +74,7 @@ h1 {
   gap: 2rem;
   margin: 15px 0;
   padding: 5px;
+  width: 100%;
 }
 
 button {
@@ -175,7 +176,6 @@ button:disabled {
   flex-grow: 1;
   align-items: center;
   overflow-y: auto;
-
 }
 
 .event-scroll-container {
@@ -196,6 +196,7 @@ button:disabled {
   border: 1px solid;
   border-radius: 10px;
   margin: 0.15rem;
+  background-color: #ffffff;
 }
 
 .confirmed {
@@ -213,13 +214,18 @@ button:disabled {
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 .clickable {
   cursor: pointer;
 }
 
-#main-page-header-text {
+.header-text {
   margin: 0 10px;
   height: 40px;
 }

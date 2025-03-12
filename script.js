@@ -169,8 +169,10 @@ function resetCountdown() {
     localStorage.removeItem(STORAGE_KEY);
     launchTime = initializeLaunchTime()
     currentFlightEventNumber = 0;
-    removeFlightEventsList();
-    loadFlightEventsList(0);
+    removeFlightEventsList("event-scroll-container");
+    loadFlightEventsList(0, "event-scroll-container");
+    removeFlightEventsList("list-view");
+    loadFlightEventsList(0, "list-view");
     loadNextFlightEvent();
   }
 }
@@ -217,7 +219,7 @@ function createListEl(eventTime, eventText) {
   return listEl;
 }
 
-function loadFlightEventsList(position, parentElId = "event-scroll-container") {
+function loadFlightEventsList(position, parentElId) {
   const eventsScrollContainer = document.getElementById(parentElId);
   flightEvents.slice(position).forEach(event => {
     const listEl = createListEl(event.time, event.event);
@@ -247,8 +249,8 @@ function revertLastEvent() {
     do {
       unconfirmEventFlightEventPage();
       currentFlightEventNumber--;
-      removeFlightEventsList();
-      loadFlightEventsList(currentFlightEventNumber);
+      removeFlightEventsList("event-scroll-container");
+      loadFlightEventsList(currentFlightEventNumber, "event-scroll-container");
       loadNextFlightEvent();
     } while (flightEvents[currentFlightEventNumber].task !== true && currentFlightEventNumber > 0)
   }
@@ -311,8 +313,8 @@ function removeElementFromEventList() {
   }
 }
 
-function removeFlightEventsList() {
-  const eventsScrollContainer = document.getElementById("event-scroll-container");
+function removeFlightEventsList(parentElId) {
+  const eventsScrollContainer = document.getElementById(parentElId);
   while (eventsScrollContainer.firstChild) {
     eventsScrollContainer.removeChild(eventsScrollContainer.firstChild);
   }
@@ -449,7 +451,7 @@ function loadFlightEventsJSON() {
       events.sort((a, b) => a.time - b.time);
 
       flightEvents = events;
-      loadFlightEventsList(0);
+      loadFlightEventsList(0, "event-scroll-container");
       loadFlightEventsList(0, "list-view")
       loadNextFlightEvent();
       setInterval(updateDisplay, 100);
