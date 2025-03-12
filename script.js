@@ -3,9 +3,12 @@ const LO_OFFSET = 615;
 let launchTime = null;
 resetLaunchTime();
 
-let moveLaunchTimeInterval = null;
+launchTimeMovedLast = new Date();
+moveLaunchTimeInterval = setInterval(() => {
+  moveLaunchTime();
+  launchTimeMovedLast = new Date();
+}, 100)
 let checkLiftoffInterval = null;
-let launchTimeMovedLast = null;
 
 let flightEvents;
 let currentFlightEventNumber = 0;
@@ -36,7 +39,7 @@ function updateCountdown() {
 function convertTimeSecondsToTimeMinutes(timeSeconds) {
   const sign = timeSeconds < 0 ? '-' : '+'
   const minutes = (Math.trunc(Math.abs(timeSeconds) / 60)).toString().padStart(2, '0');
-  const seconds = (Math.trunc(Math.abs(timeSeconds) % 60).toString()).padStart(2, "0");
+  const seconds = (Math.round(Math.abs(timeSeconds) % 60).toString()).padStart(2, "0");
 
   return sign + minutes + ':' + seconds;
 }
@@ -135,7 +138,7 @@ function clearCheckLiftoffInterval() {
 }
 
 function moveLaunchTime() {
-  launchTime = launchTime + (new Date() - launchTimeMovedLast);
+  launchTime = new Date(launchTime.getTime() + (new Date() - launchTimeMovedLast));
 }
 
 function resetCountdown() {
