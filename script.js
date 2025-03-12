@@ -205,7 +205,7 @@ function createCurrentEvent(eventTime, event, task) {
   }
 
   if (task) {
-    currentEventCheckEl.innerHTML = "<i class=\"fa-regular fa-square\"></i>"
+    currentEventCheckEl.innerHTML = "<i class=\"fa-solid fa-circle-check clickable\" style=\"color: #63E6BE;\"></i>"
 
     const handleEventClick = function () {
       document.dispatchEvent(nextEventEvent);
