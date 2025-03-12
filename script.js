@@ -106,13 +106,15 @@ function toggleCountdown() {
 }
 
 function resetCountdown() {
-  clearCountdownInterval();
-  toggleIconStartPauseBtn(true)
-  time = START_TIME;
-  currentFlightEventNumber = 0;
-  removeFlightEventsList();
-  loadFlightEventsList(0);
-  loadNextFlightEvent();
+  if (!lock) {
+    clearCountdownInterval();
+    toggleIconStartPauseBtn(true)
+    time = START_TIME;
+    currentFlightEventNumber = 0;
+    removeFlightEventsList();
+    loadFlightEventsList(0);
+    loadNextFlightEvent();
+  }
 }
 
 function toggleHiddenMenu() {
@@ -183,11 +185,13 @@ function loadLastFlightEvent() {
 }
 
 function revertLastEvent() {
-  if (currentFlightEventNumber > 0) {
-    currentFlightEventNumber--;
-    removeFlightEventsList();
-    loadFlightEventsList(currentFlightEventNumber);
-    loadNextFlightEvent();
+  if (currentFlightEventNumber > 0 && !lock) {
+    do {
+      currentFlightEventNumber--;
+      removeFlightEventsList();
+      loadFlightEventsList(currentFlightEventNumber);
+      loadNextFlightEvent();
+    } while (flightEvents[currentFlightEventNumber].task !== true && currentFlightEventNumber > 0)
   }
 }
 

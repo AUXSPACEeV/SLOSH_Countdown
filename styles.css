@@ -202,3 +202,8 @@ button:disabled {
 .clickable {
   cursor: pointer;
 }
+
+#main-page-header-text {
+  margin: 0 10px;
+  height: 40px;
+}
