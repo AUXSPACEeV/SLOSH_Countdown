@@ -186,6 +186,10 @@ button:disabled {
   border: 1px solid;
 }
 
+.confirmed {
+  background: rgba(0, 255, 18, 0.66);
+}
+
 .listElementTime {
   width: 4rem;
   flex-shrink: 0;

@@ -187,6 +187,7 @@ function loadLastFlightEvent() {
 function revertLastEvent() {
   if (currentFlightEventNumber > 0 && !lock) {
     do {
+      unconfirmEventFlightEventPage();
       currentFlightEventNumber--;
       removeFlightEventsList();
       loadFlightEventsList(currentFlightEventNumber);
@@ -295,9 +296,20 @@ function backToMainPage() {
   toggleMainPage();
 }
 
+function confirmEventFlightEventPage() {
+  const listViewEl = document.getElementById("list-view");
+  listViewEl.children[currentFlightEventNumber].classList.add("confirmed");
+}
+
+function unconfirmEventFlightEventPage() {
+  const listViewEl = document.getElementById("list-view");
+  listViewEl.children[currentFlightEventNumber - 1].classList.remove("confirmed");
+}
+
 function addEventListeners() {
   document.addEventListener("next-event", () => {
     if (currentFlightEventNumber < flightEvents.length - 1) {
+      confirmEventFlightEventPage();
       currentFlightEventNumber++;
       loadNextFlightEvent();
     }
