@@ -77,6 +77,11 @@
       "event": "Event: Service module switching to internal power"
     },
     {
+      "time": -290,
+      "event": "Confirm: New node red data in GS folder",
+      "task": true
+    },
+    {
       "time": -285,
       "event": "Set: Recording ON",
       "task": true
