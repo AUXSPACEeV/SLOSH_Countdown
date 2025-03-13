@@ -1,0 +1,117 @@
+{
+  "events": [
+    {
+      "time": -600,
+      "event": "Event: Power ON"
+    },
+    {
+      "time": -570,
+      "event": "Confirm: Power ON",
+      "confirmable": true
+    },
+    {
+      "time": -565,
+      "event": "Set: Lights 0%"
+    },
+    {
+      "time": -560,
+      "event": "Confirm: Lights 0%",
+      "confirmable": true
+    },
+    {
+      "time": -555,
+      "event": "Set: Lights 75%"
+    },
+    {
+      "time": -550,
+      "event": "Confirm: Lights 75%",
+      "confirmable": true
+    },
+    {
+      "time": -540,
+      "event": "Set: Recording ON"
+    },
+    {
+      "time": -535,
+      "event": "Confirm: Recording ON",
+      "confirmable": true
+    },
+    {
+      "time": -370,
+      "event": "Reminder: Look for write rate drops on both disks"
+    },
+    {
+      "time": -360,
+      "event": "Confirm: Write rates on both disks are stable and nominal",
+      "confirmable": true
+    },
+    {
+      "time": -355,
+      "event": "Set: Recording OFF"
+    },
+    {
+      "time": -350,
+      "event": "Confirm: Recording OFF",
+      "confirmable": true
+    },
+    {
+      "time": -345,
+      "event": "Set: Delete disk storage"
+    },
+    {
+      "time": -315,
+      "event": "Confirm: Disk storage deleted",
+      "confirmable": true
+    },
+    {
+      "time": -300,
+      "event": "Event: Service module switching to internal power"
+    },
+    {
+      "time": -270,
+      "event": "Set: Recording ON"
+    },
+    {
+      "time": -265,
+      "event": "Confirm: Recording ON",
+      "confirmable": true
+    },
+    {
+      "time": -130,
+      "event": "Reminder: Look for write rate drops on both disks"
+    },
+    {
+      "time": -120,
+      "event": "Event: SOE Signal"
+    },
+    {
+      "time": -115,
+      "event": "Confirm: SOE Signal",
+      "confirmable": true
+    },
+    {
+      "time": 0,
+      "event": "Event: LIFTOFF Signal"
+    },
+    {
+      "time": 68,
+      "event": "Event: YoYo-Despin"
+    },
+    {
+      "time": 70,
+      "event": "Event: SODS Signal"
+    },
+    {
+      "time": 71,
+      "event": "Event: Motor Separation"
+    },
+    {
+      "time": 137,
+      "event": "Event: Apogee"
+    },
+    {
+      "time": 600,
+      "event": "Event: Power OFF"
+    }
+  ]
+}
