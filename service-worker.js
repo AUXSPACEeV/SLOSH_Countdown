@@ -54,9 +54,19 @@ self.addEventListener("fetch", (event) => {
           console.warn(`Service Worker - Failed to cache the file ${event.request}:`, error)
         );
         return networkResponse;
-      }).catch(() => {
-        return cache.match(event.request);
-      })
+      }).catch(() =>
+        cache.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          else {
+            return new Response("This client is offline and has not cached the requested content", {
+              status: 408,
+              statusText: "Request Timeout",
+            });
+          }
+        })
+      )
     )
   );
 });
