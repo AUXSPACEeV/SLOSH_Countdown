@@ -6,6 +6,7 @@ const PRECACHED_URLS = [
   "./script.js",
   "./service-worker.js",
   "./styles.css",
+  "./data/flightEvents.json",
   "./web-app/apple-touch-icon.png",
   "./web-app/favicon.ico",
   "./web-app/favicon.svg",
