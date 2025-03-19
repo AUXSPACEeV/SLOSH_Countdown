@@ -466,8 +466,8 @@ function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       // noinspection JSUnusedLocalSymbols
-      navigator.serviceWorker.register("./web-app/service-worker.js")
-        .catch(err => console.log("Service worker could not be registered", err));
+      navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
+        .catch(error => console.log("Service worker could not be registered", error));
     });
   }
 }
