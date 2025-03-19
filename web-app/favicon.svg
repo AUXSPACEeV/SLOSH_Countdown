@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1118)"><rect width="1000" height="1000" fill="#1b1464"></rect><g transform="matrix(1.0269049086054631,0,0,1.0269049086054631,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="973.8" height="973.8"><svg id="Ebene_8" data-name="Ebene 8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 973.8 973.8">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fbb03b;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-6 {
+        font-size: 84.09px;
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        fill: #000;
+      }
+
+      .cls-6, .cls-8 {
+        font-family: Impact, Impact;
+      }
+
+      .cls-9 {
+        stroke-width: 5px;
+      }
+
+      .cls-9, .cls-10 {
+        stroke: #1b1464;
+      }
+
+      .cls-9, .cls-10, .cls-11, .cls-12 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-9, .cls-5 {
+        fill: #d78f00;
+      }
+
+      .cls-7 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: .1px;
+        letter-spacing: 0em;
+      }
+
+      .cls-2, .cls-10, .cls-11 {
+        fill: #f4f5ff;
+      }
+
+      .cls-8 {
+        font-size: 73.52px;
+      }
+
+      .cls-10 {
+        stroke-width: 10px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-11 {
+        stroke-width: 2px;
+      }
+
+      .cls-11, .cls-12 {
+        stroke: #fff;
+      }
+
+      .cls-4, .cls-12 {
+        fill: #1b1464;
+      }
+
+      .cls-12 {
+        stroke-width: 3px;
+      }
+    </style>
+  <clipPath id="SvgjsClipPath1118"><rect width="1000" height="1000" x="0" y="0" rx="500" ry="500"></rect></clipPath></defs>
+  <circle class="cls-10" cx="486.89" cy="486.89" r="481.89"></circle>
+  <polygon class="cls-3" points="564.82 298.8 558.44 292.84 548.96 293.87 555.97 287.41 555.68 278.68 562.06 284.64 571.54 283.61 564.53 290.07 564.82 298.8"></polygon>
+  <path class="cls-4" d="M 861.3 431.82 C 861.33 435.66 861.37 439.61 860.99 443.46 C 859.94 455.25 857.12 465.75 852.35 476.78 C 848.52 484.86 841.72 493.39 836.92 501.16 C 833.9 506.29 827.09 512.47 822.93 517.02 C 811.43 530.23 817.83 545.11 817.59 560.07 C 817.59 562.37 817.12 565.41 817.76 565.72 C 818.45 565.91 818.86 565.13 819.74 564.27 C 821.43 562.26 823.19 560.1 824.91 558.03 C 860.68 515.45 896.15 473.81 878.84 420.33 C 876.59 412.2 873.47 404.42 868.56 397.03 C 854.11 375.27 855.32 373.76 859.5 393.73 C 859.53 393.89 859.56 394.05 859.58 394.21 C 860.91 406.52 861.17 419.11 861.29 431.57 L 861.29 431.84 L 861.3 431.82 Z"></path>
+  <path class="cls-4" d="M 835.57 514.21 C 835.57 534.97 833.46 555.25 829.43 574.91 L 829.43 574.93 C 798.8 724.17 657.47 836.99 487.72 836.99 C 307.35 836.99 159.05 709.6 141.59 546.47 C 140.46 535.86 139.87 525.09 139.87 514.21 C 139.87 503.33 140.46 492.48 141.6 481.84 C 183.06 470.94 226.76 467.37 269.64 471.42 C 316.27 475.81 361.35 489 406.03 502.12 C 414.06 504.49 422.1 506.84 430.13 509.2 C 470.56 521.07 511.02 532.95 552.19 542.35 C 600.91 553.46 651.21 561.12 701.16 556.77 C 750.62 552.47 800.02 535.51 835.34 503.16 C 835.49 506.83 835.55 510.51 835.55 514.21 L 835.57 514.21 Z"></path>
+  <path class="cls-9" d="M 837.67 471.75 C 802.37 505.54 753 523.25 703.57 527.73 C 653.65 532.26 603.38 524.27 554.69 512.67 C 513.55 502.86 473.11 490.46 432.71 478.06 C 424.68 475.6 416.65 473.14 408.62 470.67 C 363.96 456.97 318.91 443.19 272.31 438.61 C 229.45 434.38 185.78 438.1 144.34 449.49 C 161.82 279.19 310.01 146.22 490.24 146.22 C 670.47 146.22 831.4 290.93 837.66 471.76 L 837.67 471.75 Z"></path>
+  <path class="cls-4" d="M 50.41 501.43 C 48.24 502.54 44.04 506.69 43.47 509.06 C 79.93 495.49 111.27 492.13 140.92 493.83 C 141.82 489.67 228.95 476.07 229.85 471.91 C 215.81 467.87 110.09 481.88 96.1 484.99 C 80.25 488.52 64.84 494.04 50.4 501.43 L 50.41 501.43 Z"></path>
+  <path class="cls-4" d="M 53.46 538.64 C 51.29 539.75 47.09 543.9 46.52 546.27 C 82.98 532.7 114.32 529.34 143.97 531.04 C 144.87 526.88 167.21 519.01 168.11 514.85 C 154.07 510.81 113.15 519.09 99.15 522.21 C 83.3 525.74 67.89 531.26 53.45 538.65 L 53.46 538.64 Z"></path>
+  <path class="cls-2" d="M 333.04 512.08 C 423.17 534.43 510.36 577.1 603.84 582.3 C 607.04 582.54 608.66 582.72 608.15 582.87 C 528.89 585.81 447.83 575.63 371.4 554.8 C 346.18 548.09 321.67 539.19 296.8 531.38 C 245.6 515.38 190.47 513.38 136.82 515.41 C 132.42 515.41 126.68 506.61 126.31 503.14 C 126.37 489.94 149.78 494.76 159.32 494.28 C 217.55 492.47 276.23 497.99 332.74 512.01 L 333.04 512.09 L 333.04 512.08 Z"></path>
+  <path class="cls-12" d="M 720.77 441.69 C 675.09 503.64 597.92 485.79 538.14 474.28 C 534.47 473.72 532 472.87 529.67 473.06 C 529.59 473.17 529.94 473.4 530.72 473.74 C 532.66 474.53 534.97 475.42 537.4 476.23 C 554.18 481.9 573.22 487.86 594.02 492.88 C 646.53 505.19 717.43 506.89 751.91 449.96 C 759.66 437.26 765.18 418.23 766.13 404.84 C 766.94 394.66 765.5 388.13 762.47 387.05 C 753.5 383.63 730.95 430.21 720.97 441.42 L 720.77 441.68 L 720.77 441.69 Z"></path>
+  <path class="cls-11" d="M 365.68 637.83 C 337.16 582.73 255.37 573.04 192.65 563.97 C 188.84 563.31 186.15 563.19 183.88 562.4 C 183.83 562.3 184.24 562.25 185.11 562.23 C 187.26 562.24 189.81 562.29 192.44 562.43 C 210.71 563.32 231.32 564.65 253.42 567.12 C 309.11 573.6 380.22 592.5 398.96 641.01 C 403.2 651.85 403.49 666.36 400.76 675.75 C 398.78 682.91 395.55 686.94 392.23 686.82 C 382.36 686.61 372.66 648.52 365.79 638.06 L 365.67 637.83 L 365.68 637.83 Z"></path>
+  <polygon class="cls-5" points="206.59 624.64 197.63 615.58 185.01 616.43 193.95 607.55 192.96 594.9 201.92 603.96 214.54 603.11 205.6 611.99 206.59 624.64"></polygon>
+  <polygon class="cls-1" points="292.15 725.25 283.19 716.2 270.57 717.04 279.51 708.17 278.53 695.52 287.49 704.57 300.1 703.73 291.17 712.6 292.15 725.25"></polygon>
+  <polygon class="cls-5" points="619.15 651.4 610.19 642.34 597.57 643.19 606.51 634.31 605.52 621.67 614.48 630.72 627.1 629.87 618.16 638.75 619.15 651.4"></polygon>
+  <polygon class="cls-1" points="392.22 773.41 386.35 767.88 377.74 768.73 384.05 762.86 383.71 754.84 389.58 760.37 398.18 759.52 391.87 765.39 392.22 773.41"></polygon>
+  <polygon class="cls-5" points="703.21 691.06 698.25 686.21 691.13 686.79 696.25 681.86 695.83 674.96 700.79 679.82 707.91 679.23 702.78 684.16 703.21 691.06"></polygon>
+  <polygon class="cls-5" points="591.03 719.74 586.28 714.94 579.59 715.39 584.33 710.69 583.81 703.98 588.56 708.78 595.25 708.33 590.51 713.04 591.03 719.74"></polygon>
+  <polygon class="cls-5" points="506.03 669.19 492.14 654.83 472.87 655.9 486.34 642.19 484.57 622.37 498.46 636.72 517.74 635.66 504.26 649.37 506.03 669.19"></polygon>
+  <polygon class="cls-5" points="722.2 651.78 710.46 639.48 694.32 640.24 705.51 628.68 703.88 611.82 715.62 624.12 731.76 623.36 720.57 634.92 722.2 651.78"></polygon>
+  <polygon class="cls-1" points="538.74 780.98 533.99 776.18 527.3 776.63 532.04 771.93 531.52 765.22 536.27 770.02 542.96 769.57 538.22 774.28 538.74 780.98"></polygon>
+  <polygon class="cls-1" points="282.65 658.86 277.9 654.06 271.21 654.51 275.95 649.8 275.43 643.1 280.18 647.9 286.86 647.45 282.13 652.16 282.65 658.86"></polygon>
+  <polygon class="cls-1" points="650.1 748.59 645.35 743.79 638.66 744.23 643.4 739.53 642.87 732.82 647.62 737.62 654.31 737.18 649.57 741.88 650.1 748.59"></polygon>
+  <polygon class="cls-3" points="443.73 323.4 438.98 318.6 432.29 319.05 437.02 314.34 436.5 307.64 441.25 312.44 447.94 311.99 443.2 316.7 443.73 323.4"></polygon>
+  <polygon class="cls-3" points="493.04 289.96 488.29 285.16 481.6 285.61 486.34 280.9 485.81 274.2 490.56 279 497.25 278.55 492.51 283.25 493.04 289.96"></polygon>
+  <polygon class="cls-3" points="703.95 324.7 699.2 319.9 692.51 320.35 697.25 315.64 696.72 308.94 701.47 313.74 708.16 313.29 703.42 317.99 703.95 324.7"></polygon>
+  <polygon class="cls-3" points="438.94 240.71 429.1 231.6 414.49 233.17 425.29 223.29 424.85 209.95 434.69 219.06 449.29 217.48 438.49 227.36 438.94 240.71"></polygon>
+  <polygon class="cls-3" points="631.95 270.35 616.85 255.17 595.49 256.67 610.67 241.69 609.08 220.42 624.19 235.59 645.54 234.1 630.36 249.08 631.95 270.35"></polygon>
+  <polygon class="cls-3" points="515.57 222 510.82 217.2 504.13 217.65 508.87 212.94 508.34 206.24 513.09 211.04 519.78 210.59 515.04 215.29 515.57 222"></polygon>
+  <polygon class="cls-3" points="362.52 242.72 357.77 237.92 351.08 238.37 355.81 233.67 355.29 226.96 360.04 231.76 366.73 231.31 361.99 236.02 362.52 242.72"></polygon>
+  <polygon class="cls-3" points="653.25 379.41 645.05 371.33 633.31 372.26 641.74 364.1 640.99 352.66 649.19 360.74 660.93 359.81 652.51 367.96 653.25 379.41"></polygon>
+  <polygon class="cls-3" points="596.67 346.95 586.83 337.84 572.23 339.42 583.03 329.54 582.58 316.19 592.42 325.3 607.03 323.73 596.23 333.61 596.67 346.95"></polygon>
+  <polygon class="cls-3" points="385.57 314.63 375.72 305.52 361.12 307.09 371.92 297.21 371.47 283.87 381.32 292.98 395.92 291.4 385.12 301.28 385.57 314.63"></polygon>
+  <ellipse class="cls-2" cx="332.99" cy="649.38" rx="16.53" ry="15.61"></ellipse>
+  <ellipse class="cls-2" cx="359.74" cy="688.02" rx="8.26" ry="7.81"></ellipse>
+  <g transform="matrix(1, 0, 0, 1, -95.599976, 0)">
+    <path class="cls-12" d="M364.67,341.1c-5.74.05-8.63.19-14.46.82.85-6.24-4.47-8.81-16-7.45-7.08.84-10.87,3.04-11.28,6.07-.3,2.23,6.16.43,17.38,4.49,13.42,4.85,25.32,18.67,22.94,33.88-3.22,20.62-17.53,34.35-39.16,29.88-12.68-2.62-35.69-10.58-33.33-27.78,6.4-2.26,9.6-3.39,15.99-5.52-.45,1.69-.77,3.26-.97,4.72-.6,4.43.88,8.13,4.34,11.86,3.46,3.73,7.81,6.26,13.12,6.92,7.01.87,11.02-2.4,12.02-9.7.67-4.88-4.36-11.01-15.19-15.25-7.42-2.91-24.88-6.88-23.57-17.98.63-5.31,5-11.54,12.21-16.47,7.26-4.96,18.18-7.91,26.77-8.48,8.98-.6,26.68-1.92,29.19,9.99Z"></path>
+    <path class="cls-12" d="M411.7,324.31c-4.4,32.29-8.8,64.59-13.2,96.88-9.58-2.05-19.16-4.06-28.76-6.01,4.2-30.8,8.39-61.61,12.59-92.41,9.78.63,19.58,1.15,29.37,1.54Z"></path>
+    <path class="cls-12" d="M460.72,353.57c24.51,10.28,35.4,35.03,32.28,60.51-2.76,22.53-24.76,25.3-43.43,21.36-28.59-6.03-34.94-36.74-32.19-61.79,2.81-25.51,22.18-28.95,43.34-20.07ZM459.76,360.02c-7.99-3.01-12.31,19.92-13.64,28.15-1.7,10.52-4.19,37.1,4.36,39.95,7.66,2.55,12.86-22.92,13.96-29.87,1.59-10.1,3.76-35.04-4.68-38.22Z"></path>
+    <path class="cls-12" d="M567.98,423.46c-5.79.41-8.67.44-14.37.16,2.15-11.09-.83-25.18-13.21-27.97-6.7-1.51-10.51.4-11.46,7.39-.7,5.15,4.2,13.39,14.98,22.1,8.16,6.59,24.92,17.03,23.94,26.53-1.14,10.99-26.81,4.74-35.48,2.85-12.35-2.7-35.91-6.58-33.77-24.61,5.85,1.8,8.77,2.73,14.62,4.53-.37,1.12-.62,2.15-.75,3.13-.4,2.95,1.18,5.95,4.76,8.79,3.58,2.84,8.03,4.62,13.22,6.14,6.86,2.02,10.47,1.7,10.78-.62.21-1.55-5.26-4.37-15.65-11.81-11.07-7.93-22.74-21.69-21.11-35.98.9-7.91,5.2-13.76,12.33-17.36,7.14-3.6,15.7-2.95,25.8-1.36,19.15,3.03,26.48,20.28,25.36,38.1Z"></path>
+    <path class="cls-12" d="M577.7,463.35l16.56-121.52c9.78.54,20.15-.27,29.81-1.71-3.33,24.47-6.67,48.94-10,73.41,6.39-12.53,17.55-26.14,31.08-30.05,11.05-3.19,21.83,3,18.44,15.73-3.49,25.62-6.98,51.24-10.47,76.86-9.67-1.37-19.34-2.85-28.98-4.44,2.46-18.08,4.93-36.16,7.39-54.24.91-6.68-.26-9.63-3.5-8.81-3.36.84-7.09,6.05-11.17,15.37-4.08,9.33-6.14,14.16-6.85,19.35-1.66,12.21-2.35,17.28-3.45,25.34-9.63-1.68-19.26-3.45-28.86-5.3Z"></path>
+  </g>
+  <text class="cls-6" transform="matrix(0.027043, -1.03965, 0.999723, 0.023644, 102.210022, 483.290009)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.090823, -1.03603, 0.996386, 0.084979, 102.970032, 461.470001)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.19345, -1.02185, 0.982953, 0.183869, 104.300018, 440.920013)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">A</tspan></text>
+  <text class="cls-6" transform="matrix(0.336015, -0.984222, 0.946954, 0.321374, 113.430023, 393.51001)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">U</tspan></text>
+  <text class="cls-6" transform="matrix(0.46794, -0.92878, 0.893711, 0.448646, 130.620026, 344.630005)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">X</tspan></text>
+  <text class="cls-6" transform="matrix(0.586067, -0.859142, 0.82661, 0.562776, 151.64003, 303.299988)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">S</tspan></text>
+  <text class="cls-6" transform="matrix(0.693464, -0.775053, 0.745485, 0.666522, 179.77002, 262.640015)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">P</tspan></text>
+  <text class="cls-6" transform="matrix(0.783228, -0.684217, 0.657628, 0.753343, 210.680023, 228.279999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">A</tspan></text>
+  <text class="cls-6" transform="matrix(0.866238, -0.575527, 0.552636, 0.833423, 247.400024, 196.389999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">C</tspan></text>
+  <text class="cls-6" transform="matrix(0.929269, -0.466967, 0.44771, 0.89418, 291.870026, 167.619995)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">E</tspan></text>
+  <text class="cls-6" transform="matrix(0.964067, -0.390096, 0.373578, 0.9276, 329.820038, 149.289993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.984457, -0.335328, 0.320713, 0.947178, 350.290039, 141.199997)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(1.00164, -0.279851, 0.267165, 0.963653, 371.180023, 134.279999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(1.01566, -0.223679, 0.212949, 0.977066, 392.410034, 128.539993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(1.03196, -0.129086, 0.12178, 0.99256, 412.670013, 123.589996)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">R</tspan></text>
+  <text class="cls-6" transform="matrix(1.03993, -0.01198, 0.009159, 0.999961, 464.220032, 117.769997)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">E</tspan></text>
+  <text class="cls-6" transform="matrix(1.03491, 0.102751, -0.101147, 0.994874, 505.380005, 117.43)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">X</tspan></text>
+  <text class="cls-6" transform="matrix(1.01424, 0.230056, -0.223332, 0.974745, 551.76001, 122.120003)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">U</tspan></text>
+  <text class="cls-6" transform="matrix(0.976158, 0.358769, -0.346674, 0.937987, 602.450012, 133.970001)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">S</tspan></text>
+  <text class="cls-6" transform="matrix(0.939235, 0.446584, -0.430719, 0.902487, 649.630005, 152.289993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.893411, 0.532369, -0.512829, 0.858492, 668.580017, 160.779999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">3</tspan></text>
+  <text class="cls-6" transform="matrix(0.81583, 0.644997, -0.620617, 0.784114, 711.840027, 186.869995)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">3</tspan></text>
+  <text class="cls-6" transform="matrix(0.733592, 0.737186, -0.708832, 0.705377, 751.369995, 218.899994)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">/</tspan></text>
+  <text class="cls-6" transform="matrix(0.670583, 0.794933, -0.764125, 0.645068, 779.340027, 247.889999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.589661, 0.85668, -0.823216, 0.567729, 793.040039, 263.339996)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">3</tspan></text>
+  <text class="cls-6" transform="matrix(0.468589, 0.928453, -0.892089, 0.451862, 821.300049, 305)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">4</tspan></text>
+  <text class="cls-6" transform="matrix(0.375751, 0.969748, -0.931794, 0.362992, 842.480042, 349.059998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.314984, 0.991153, -0.952428, 0.304772, 850.160034, 369.440002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.252831, 1.0088, -0.969514, 0.245044, 856.570007, 390.23999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.189703, 1.02255, -0.982826, 0.184549, 861.680054, 411.420013)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.125843, 1.03236, -0.992367, 0.123345, 865.450012, 432.880005)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.061679, 1.03817, -0.9981, 0.061662, 867.890015, 454.540009)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(0.010891, 1.03994, -0.99992, 0.012831, 868.900024, 476.730011)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.065302, 1.03795, -0.998175, -0.060435, 868.76001, 498.130005)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.129266, 1.03194, -0.992539, -0.121953, 867.190002, 519.900024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.192915, 1.02195, -0.983049, -0.183355, 864.290039, 541.47998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.255999, 1.008, -0.969767, -0.244042, 860.050049, 562.869995)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.317923, 0.990215, -0.95274, -0.303794, 854.5, 583.940002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.378458, 0.968695, -0.932098, -0.362211, 847.640015, 604.659973)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.437054, 0.943708, -0.908098, -0.418762, 839.52002, 624.909973)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.493691, 0.915352, -0.880749, -0.473584, 830.150024, 644.659973)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.548034, 0.883888, -0.850467, -0.52603, 819.600037, 663.820007)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.599935, 0.849517, -0.817262, -0.576267, 807.900024, 682.320007)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.649118, 0.812555, -0.781643, -0.623727, 795.110046, 700.090027)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.695761, 0.772992, -0.743383, -0.668866, 781.280029, 717.099976)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.739487, 0.731272, -0.703146, -0.711045, 766.470032, 733.27002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.780476, 0.687356, -0.660647, -0.750697, 750.730042, 748.570007)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.818748, 0.641289, -0.616195, -0.787594, 734.100037, 762.960022)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.853995, 0.593542, -0.570117, -0.821564, 716.700012, 776.359985)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.886366, 0.544017, -0.522165, -0.852845, 698.530029, 788.75)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.915696, 0.493052, -0.47297, -0.88108, 679.700012, 800.099976)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.942099, 0.44051, -0.422252, -0.90648, 660.240051, 810.359985)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.965355, 0.386897, -0.3705, -0.928834, 640.25, 819.51001)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.985563, 0.332062, -0.31757, -0.948237, 619.77002, 827.52002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.00256, 0.276528, -0.263968, -0.964534, 598.860046, 834.369995)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.01644, 0.220133, -0.209537, -0.977803, 577.570007, 840.049988)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.02705, 0.163588, -0.155145, -0.987894, 556.02002, 844.530029)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.03451, 0.106724, -0.100272, -0.994963, 534.240051, 847.820007)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.03879, 0.050079, -0.045795, -0.998954, 512.290039, 849.900024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.0398, -0.020328, 0.021906, -0.999763, 490.710022, 850.900024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.03813, -0.062403, 0.062359, -0.998057, 468.200012, 850.47998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.03317, -0.118994, 0.116761, -0.993163, 446.220032, 848.97998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.02504, -0.175766, 0.171152, -0.985247, 424.380005, 846.280029)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-1.01367, -0.232534, 0.225713, -0.974196, 402.720032, 842.380005)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.99911, -0.288756, 0.279568, -0.960128, 381.330017, 837.289978)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.981373, -0.344249, 0.332721, -0.943027, 360.280029, 831.01001)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.960417, -0.398997, 0.385159, -0.922852, 339.600037, 823.559998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.936331, -0.45264, 0.436539, -0.899687, 319.410034, 814.969971)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.909164, -0.504996, 0.486683, -0.873579, 299.710022, 805.25)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.878975, -0.55588, 0.53542, -0.844586, 280.610016, 794.429993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.845836, -0.605113, 0.58243, -0.812881, 262.170013, 782.549988)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.809715, -0.652658, 0.627979, -0.77823, 244.460022, 769.650024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.770802, -0.698186, 0.671467, -0.741034, 227.51001, 755.75)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.728946, -0.74178, 0.71325, -0.700909, 211.400024, 740.909973)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-6" transform="matrix(-0.684217, -0.783228, 0.752865, -0.658175, 196.210022, 725.179993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <polygon class="cls-3" points="297.29 281.01 288.56 273.17 275.39 274.75 285.25 265.94 285.04 254.26 293.77 262.1 306.94 260.52 297.08 269.32 297.29 281.01"></polygon>
+  <polygon class="cls-3" points="619.24 434.17 612.07 427.61 601.34 428.82 609.31 421.6 609.05 411.92 616.23 418.48 626.95 417.27 618.98 424.49 619.24 434.17"></polygon>
+  <polygon class="cls-5" points="468.68 733.59 459.72 724.54 447.1 725.38 456.04 716.51 455.05 703.86 464.01 712.91 476.63 712.07 467.69 720.94 468.68 733.59"></polygon>
+  <ellipse class="cls-12" cx="736.1" cy="383.17" rx="8.26" ry="7.81"></ellipse>
+  <ellipse class="cls-12" cx="703.05" cy="408.15" rx="16.53" ry="15.61"></ellipse>
+  <text class="cls-8" transform="matrix(0.170769, 1.03602, -0.988594, 0.151064, 69.340027, 583.539978)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">F</tspan></text>
+  <text class="cls-8" transform="matrix(0.29382, 1.00805, -0.963794, 0.266985, 76.470032, 624.559998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">u</tspan></text>
+  <text class="cls-8" transform="matrix(0.428266, 0.969633, -0.920654, 0.390654, 91.700027, 674.02002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-8" transform="matrix(0.526471, 0.920015, -0.87529, 0.483824, 112.870026, 719.409973)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">l</tspan></text>
+  <text class="cls-8" transform="matrix(0.587981, 0.881974, -0.840159, 0.542538, 128.510025, 745.840027)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-8" transform="matrix(0.66866, 0.822492, -0.78469, 0.620044, 141.650024, 765.820007)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">S</tspan></text>
+  <text class="cls-8" transform="matrix(0.751101, 0.747962, -0.714408, 0.699839, 174.52002, 804.580017)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">l</tspan></text>
+  <text class="cls-8" transform="matrix(0.82424, 0.666504, -0.630546, 0.763295, 197.150024, 827.02002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">o</tspan></text>
+  <text class="cls-8" transform="matrix(0.899127, 0.561401, -0.530761, 0.835733, 237.320038, 858.51001)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">s</tspan></text>
+  <text class="cls-8" transform="matrix(0.969038, 0.453724, -0.423691, 0.894765, 278.230011, 883.400024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">h</tspan></text>
+  <text class="cls-8" transform="matrix(1.00881, 0.356645, -0.331389, 0.93289, 325.170013, 904.280029)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">i</tspan></text>
+  <text class="cls-8" transform="matrix(1.0384, 0.258132, -0.237382, 0.96112, 355.170013, 914.849976)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">n</tspan></text>
+  <text class="cls-8" transform="matrix(1.06154, 0.134292, -0.119434, 0.982781, 405.720032, 926.72998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">g</tspan></text>
+  <text class="cls-8" transform="matrix(1.05906, 0.044573, -0.034421, 0.989428, 455.950012, 932.099976)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-8" transform="matrix(1.05983, -0.01924, 0.026663, 0.989679, 478.970032, 932.900024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">i</tspan></text>
+  <text class="cls-8" transform="matrix(1.05358, -0.116502, 0.119474, 0.982823, 510.550049, 932.309998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">n</tspan></text>
+  <text class="cls-8" transform="matrix(1.04038, -0.202984, 0.203479, 0.979155, 560.850037, 925.77002)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-8" transform="matrix(1.01492, -0.305842, 0.301639, 0.95352, 584.710022, 921.659973)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">M</tspan></text>
+  <text class="cls-8" transform="matrix(0.976168, -0.413153, 0.403227, 0.915217, 647.869995, 901.059998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">i</tspan></text>
+  <text class="cls-8" transform="matrix(0.929686, -0.509199, 0.493358, 0.869952, 677.150024, 888.859985)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">c</tspan></text>
+  <text class="cls-8" transform="matrix(0.886159, -0.581655, 0.56095, 0.827979, 719.240051, 865.460022)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">r</tspan></text>
+  <text class="cls-8" transform="matrix(0.8175, -0.658933, 0.638257, 0.769946, 750.910034, 844.429993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">o</tspan></text>
+  <text class="cls-8" transform="matrix(0.760886, -0.723569, 0.698277, 0.715939, 788.75, 812.75)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-8" transform="matrix(0.695476, -0.786646, 0.756592, 0.653983, 805.940002, 796.679993)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">G</tspan></text>
+  <text class="cls-8" transform="matrix(0.60944, -0.855034, 0.827673, 0.57891, 840.340027, 756.369995)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">r</tspan></text>
+  <text class="cls-8" transform="matrix(0.519754, -0.912335, 0.880755, 0.494381, 862.170044, 725.340027)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">a</tspan></text>
+  <text class="cls-8" transform="matrix(0.415828, -0.964151, 0.928728, 0.396958, 886, 682.049988)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">v</tspan></text>
+  <text class="cls-8" transform="matrix(0.328126, -0.997413, 0.959646, 0.314929, 902.610046, 641.72998)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">i</tspan></text>
+  <text class="cls-8" transform="matrix(0.250104, -1.01978, 0.98058, 0.242, 911.890015, 612.48999)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">t</tspan></text>
+  <text class="cls-8" transform="matrix(0.146495, -1.03973, 0.999508, 0.145269, 920, 578.150024)" style="white-space: pre;" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan x="0" y="0">y</tspan></text>
+</svg></svg></g></g></svg>

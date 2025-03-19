@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap");
+
+* {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa;
+  text-align: center;
+  color: #1f487e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+body,
+.page-container {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.fixed-section {
+  flex-shrink: 0;
+}
+
+h1 {
+  margin: 10px;
+  font-weight: 700;
+}
+
+.countdown-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 97%;
+}
+
+#countdown {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-grow: 0;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 15px 0;
+  padding: 5px;
+  width: 100%;
+}
+
+button {
+  margin: 0;
+  background-color: #1f487e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #16355e;
+}
+
+button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+#iconStartPauseBtn {
+  color: #ffffff;
+}
+
+.event-box {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.5em;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.hidden-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.hidden-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-buttons button {
+  background-color: #527db5;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.clock {
+  font-size: 1.5rem;
+  width: 10rem;
+}
+
+.events-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.event-scroll-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.listElement {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  width: 80%;
+  text-align: start;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 0.15rem;
+  background-color: #ffffff;
+}
+
+.confirmed {
+  background: rgba(0, 255, 18, 0.66);
+}
+
+.listElementTime {
+  width: 4rem;
+  flex-shrink: 0;
+}
+
+.listElementEvent {
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.header-text {
+  margin: 0 10px;
+  height: 40px;
+}
